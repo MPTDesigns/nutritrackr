@@ -13,6 +13,12 @@ public class UsersController {
         return "users/register";
     }
 
+    @PostMapping("/register")
+    public String registerUser() {
+
+        return "redirect:/login";
+    }
+
     @GetMapping("/login")
     public String showLoginPage() {
         return "users/login";
