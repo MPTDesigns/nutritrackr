@@ -23,4 +23,10 @@ public class UsersController {
     public String showLoginPage() {
         return "users/login";
     }
+
+    @PostMapping("/login")
+    public String loginUser() {
+        return "users/diary";
+    }
+
 }
