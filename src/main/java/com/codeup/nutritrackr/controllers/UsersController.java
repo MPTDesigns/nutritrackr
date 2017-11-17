@@ -9,6 +9,7 @@ public class UsersController {
 
     @GetMapping("/register")
     public String showRegisterPage() {
+
         return "users/register";
     }
 

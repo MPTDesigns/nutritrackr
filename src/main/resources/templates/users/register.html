@@ -9,5 +9,36 @@
 </head>
 <body>
     <h2>Hello from register</h2>
+        <form th:action="@{/register}" method="POST">
+            <div class="form-group">
+                <label><b>First name</b></label>
+                <input type="text" placeholder="First name" name="Firstname" required />
+        <br/><br/>
+
+        <label><b>Last name</b></label>
+        <input type="text" placeholder="Lasst name" name="Lasstname" required/>
+        <br/><br/>
+
+        <label><b>Email</b></label>
+        <input type="text"placeholder = "Enter email" name="email" required/>
+        <br/><br/>
+
+        <!--<label><b>Gender</b></label>-->
+        <!--<input type="radio" name="sex" value="male" size="10"/>Male-->
+        <!--<input type="radio" name="sex" value="Female" size="10"/>Female-->
+        <!--<br/><br/>-->
+
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required/>
+        <br/><br/>
+
+        <label><b>Confirm Password</b></label>
+        <input type="password" placeholder="Confirm Password" name="Confirm pwd" required/>
+
+        <br/><br/>
+        <button type="button"  class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Register</button>
+        </div>
+    </form>
 </body>
 </html>
