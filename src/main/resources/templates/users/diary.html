@@ -4,8 +4,34 @@
     <title>Diary</title>
 </head>
 <body>
-
 <h1>This will be your food diary</h1>
+
+<div class="food">
+
+    <form th:action="@{/diary}" method="post">
+        <div class="form-food">
+            <label for="breakfast">Breakfast</label>
+            <input id="breakfast" name="breakfast" type="text" class="form-control"/>
+            <input type="submit" value="Add Breakfast" class="btn btn-primary"/>
+        </div>
+        <div class="form-food">
+            <label for="lunch">Lunch</label>
+            <input id="lunch" name="lunch" type="text" class="form-control"/>
+            <input type="submit" value="Add Lunch" class="btn btn-primary"/>
+        </div>
+        <div class="form-food">
+            <label for="dinner">Dinner</label>
+            <input id="dinner" name="dinner" type="text" class="form-control"/>
+            <input type="submit" value="Add Dinner" class="btn btn-primary"/>
+        </div>
+        <div class="form-food">
+            <label for="snack">Snack</label>
+            <input id="snack" name="snack" type="text" class="form-control"/>
+            <input type="submit" value="Add Snack" class="btn btn-primary"/>
+        </div>
+    </form>
+
+</div>
 
 </body>
 </html>
