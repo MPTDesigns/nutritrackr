@@ -18,4 +18,9 @@ public class UsersController {
         return "users/login";
     }
 
+    @PostMapping("/login")
+    public String loginUser() {
+        return "users/diary";
+    }
+
 }
