@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments/head :: main-header('All posts')"></head>
+<body>
+<nav th:include="fragments/navbar :: mainNavbar"></nav>
+<div class="container">
+    <h2>Set your goal!</h2>
+    <form method="post" action="@{/goals/update}">
+        <div>
+            <label for="caloriesGoal">Calories:</label>
+            <button type="button" class="btn dec-btn" id="calDecrementBtn">&minus;</button>
+            <input type='number' name='caloriesGoal' id='caloriesGoal' value=0 placeholder="0"/>
+            <button type="button" class="btn inc-btn" id="calories-inc-btn">&plus;</button>
+        </div>
+        <div>
+            <label for="proteinGoal">Protein(%):</label>
+            <button type="button" class="btn dec-btn" id="proDecrementBtn">&minus;</button>
+            <input type='number' name='proteinGoal' id='proteinGoal' value=0 data-max="100" placeholder="%"/>
+            <button type="button" class="btn inc-btn percent" id="proIncrementBtn">&plus;</button>
+        </div>
+        <div>
+            <label for="fatGoal">Fat(%):</label>
+            <button type="button" class="btn dec-btn" id="fatDecrementBtn">&minus;</button>
+            <input type='number' name='fatGoal' id='fatGoal' value=0 data-max="100" placeholder="%"/>
+            <button type="button" class="btn inc-btn percent" id="fatIncrementBtn">&plus;</button>
+        </div>
+        <div>
+            <label for="carbGoal">Carbohydrate(%):</label>
+            <button type="button" class="btn dec-btn" id="carbDecrementBtn">&minus;</button>
+            <input type='number' name='carbGoal' id='carbGoal' value=0 data-max="100" placeholder="%"/>
+            <button type="button" class="btn inc-btn percent" id="carbIncrementBtn">&plus;</button>
+        </div>
+        <input type="submit" value="Update Goals">
+    </form>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</div>
+<footer th:include="fragments/footer :: footer"></footer>
+</body>
+</html>
