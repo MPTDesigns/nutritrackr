@@ -1,9 +1,11 @@
 package com.codeup.nutritrackr.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -18,7 +20,7 @@ public class Goal {
     private User user;
 
     @Column(nullable = false)
-    private LocalDate startDate;
+    private LocalDateTime startDate;
 
     @Column(nullable = false)
     @Min(value = 0)
@@ -39,6 +41,19 @@ public class Goal {
     @Max(value = 100, message = "The carbohydrate percentage goal cannot be more than 100%")
     private int carbGoal;
 
+    @Autowired
+    public Goal() {
+    }
+
+    public Goal(User user, int calorieGoal, int proteinGoal, int fatGoal, int carbGoal) {
+        this.user = user;
+        this.startDate = LocalDateTime.now();
+        this.calorieGoal = calorieGoal;
+        this.proteinGoal = proteinGoal;
+        this.fatGoal = fatGoal;
+        this.carbGoal = carbGoal;
+    }
+
     public long getId() {
         return id;
     }
@@ -55,11 +70,11 @@ public class Goal {
         this.user = user;
     }
 
-    public LocalDate getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
