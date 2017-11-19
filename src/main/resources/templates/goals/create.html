@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="fragments/head :: main-header('All posts')"></head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
 <body>
-<nav th:include="fragments/navbar :: mainNavbar"></nav>
 <div class="container">
     <h2>Set your goal!</h2>
-    <form method="post" action="@{/goals/update}">
+    <form method="post" th:action="@{/goals/update}">
         <div>
             <label for="caloriesGoal">Calories:</label>
             <button type="button" class="btn dec-btn" id="calDecrementBtn">&minus;</button>
@@ -36,8 +41,7 @@
             src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
+    <script th:src="@{js/main.js}"></script>
 </div>
-<footer th:include="fragments/footer :: footer"></footer>
 </body>
 </html>
