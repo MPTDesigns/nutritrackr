@@ -4,6 +4,7 @@ package com.codeup.nutritrackr.models;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.util.List;
 
 @Entity
 @Table(name = "Food_Drinks")
@@ -29,6 +30,9 @@ public class FoodDrink {
 
     @Column(nullable = false)
     private int carbohydrates;
+
+    @ManyToMany(mappedBy = "foodItems")
+    private List<Meal> meals;
 
     public FoodDrink(String description, int calories, int protein, int fat, int carbohydrates) {
         this.description = description;
