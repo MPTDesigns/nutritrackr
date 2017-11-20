@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "Meals")
@@ -29,6 +30,14 @@ public class Meal {
 
     @Column(nullable = false)
     private LocalDateTime meal_date;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "Meal_Items",
+        joinColumns = {@JoinColumn(name = "meal_id")},
+        inverseJoinColumns = {@JoinColumn(name = "food_drink_id")}
+    )
+    private List<FoodDrink> foodItems;
 
     @Autowired
     public Meal() {
