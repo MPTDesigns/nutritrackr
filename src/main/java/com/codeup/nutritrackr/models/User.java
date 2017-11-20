@@ -1,6 +1,7 @@
 package com.codeup.nutritrackr.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Users")
@@ -20,6 +21,9 @@ public class User {
 
     @Column(nullable = false, length = 50)
     private String lastName;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Goal> goals;
 
     public long getId() {
         return id;
@@ -59,5 +63,13 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public List<Goal> getGoals() {
+        return goals;
+    }
+
+    public void setGoals(List<Goal> goals) {
+        this.goals = goals;
     }
 }
