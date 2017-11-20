@@ -24,14 +24,12 @@ public class GoalsController {
     }
 
     @GetMapping("/goals")
-    @ResponseBody
-    public String getUserGoals() {
+    public String getUserGoals(Model model) {
         User user = users.findOne(1);
         Goal userGoals = goals.findMostRecentUserGoals(user);
-        if(userGoals != null) {
-            return String.format("Calories: %s", userGoals.getCalorieGoal());
-        }
-        return "User has no goals";
+        model.addAttribute("userGoals", userGoals != null ? userGoals : new Goal());
+
+        return "goals/view";
     }
 
     @GetMapping("/goals/create")
