@@ -36,7 +36,7 @@ public class GoalsController {
 
     @GetMapping("/goals/create")
     public String createUserGoals(Model model) {
-        model.addAttribute("goal", new Goal());
+        model.addAttribute("goal", goals.findMostRecentUserGoals(users.findOne(1)));
         return "goals/create";
     }
 
