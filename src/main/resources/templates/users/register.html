@@ -9,30 +9,30 @@
 </head>
 <body>
     <h2>Hello from register!</h2>
-        <form th:action="@{/register}" method="POST">
+        <form th:action="@{/register}" method="POST" th:object="${user}">
             <div>
             First Name:
-            <input type="text" placeholder="First Name" name="first-name" required="required" />
+            <input type="text" th:field="*{firstName}" placeholder="First Name" required="required" />
             </div>
 
             <div>
             Last Name:
-            <input type="text" placeholder="Last Name" name="last-name" required="required" />
+            <input type="text" th:field="*{lastName}" placeholder="Last Name" required="required" />
             </div>
 
             <div>
             Email:
-            <input type="text" placeholder = "Enter Email" name="email" required="required" />
+            <input type="text" th:field="*{email}" placeholder="Enter Email" required="required" />
             </div>
 
             <div>
             Password:
-            <input type="password" placeholder="Enter Password" name="pwd" required="required" />
+            <input type="password" th:field="*{password}" placeholder="Enter Password" required="required" />
             </div>
 
             <div>
             Confirm Password:
-            <input type="password" placeholder="Confirm Password" name="confirm-pwd" required="required" />
+            <input type="password" id="confirmPwd" name="confirmPwd" placeholder="Confirm Password" required="required" />
             </div>
         <div>
         <button type="button"  class="cancelbtn">Cancel</button>
