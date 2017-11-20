@@ -27,7 +27,10 @@ public class GoalsController {
     public String getUserGoals(Model model) {
         User user = users.findOne(1);
         Goal userGoals = goals.findMostRecentUserGoals(user);
-        model.addAttribute("userGoals", userGoals != null ? userGoals : new Goal());
+        if (userGoals == null) {
+            return "redirect:/goals/create";
+        }
+        model.addAttribute("userGoals", userGoals);
 
         return "goals/view";
     }
