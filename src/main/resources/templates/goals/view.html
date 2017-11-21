@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/site.css"/>
+</head>
+<body>
+<h1>View your goals!</h1>
+    <form method="post" th:action="@{/goals/view}">
+    <div>
+        <table>
+            <tr>
+                <th>Calories</th>
+                <th th:text="${userGoals.calorieGoal}"></th>
+                <th>Calories from</th>
+                <th>Grams</th>
+            </tr>
+            <tr>
+                <td>Protein</td>
+                <td><span th:text="${userGoals.proteinGoal}"></span>%</td>
+                <td th:text="${userGoals.proteinCaloriesGoal}"></td>
+                <td th:text="${userGoals.proteinGramsGoal}"></td>
+            </tr>
+            <tr>
+                <td>Fat</td>
+                <td><span th:text="${userGoals.fatGoal}"></span>%</td>
+                <td th:text="${userGoals.fatCaloriesGoal}"></td>
+                <td th:text="${userGoals.fatGramsGoal}"></td>
+            </tr>
+            <tr>
+                <td>Carbohydrate</td>
+                <td><span th:text="${userGoals.carbGoal}"></span>%</td>
+                <td th:text="${userGoals.carbCaloriesGoal}"></td>
+                <td th:text="${userGoals.carbGramsGoal}"></td>
+            </tr>
+        </table>
+    </div>
+</form>
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script th:src="@{/js/calView.js}"></script>
+</body>
+</html>

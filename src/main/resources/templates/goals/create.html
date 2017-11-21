@@ -14,7 +14,7 @@
         <div>
             <label for="calorieGoal">Calories:</label>
             <button type="button" class="btn dec-btn" id="calDecrementBtn">&minus;</button>
-            <input type='number' th:field="*{calorieGoal}" name='calorieGoal' id='calorieGoal' value="0" placeholder="0"/>
+            <input type="number" th:field="*{calorieGoal}" id="calorieGoal" placeholder="0"/>
             <button type="button" class="btn inc-btn" id="calories-inc-btn">&plus;</button>
         </div>
         <div>
@@ -37,10 +37,6 @@
         </div>
         <input type="submit" value="Update Goals" />
     </form>
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
     <script th:src="@{/js/main.js}"></script>
 </div>
 </body>

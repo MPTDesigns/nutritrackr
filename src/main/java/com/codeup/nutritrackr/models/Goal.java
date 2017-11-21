@@ -11,6 +11,10 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "Goals")
 public class Goal {
+    private static final int PROTEIN_CALORIES_PER_GRAM = 4;
+    private static final int FAT_CALORIES_PER_GRAM = 9;
+    private static final int CARBOHYDRATE_CALORIES_PER_GRAM = 4;
+
     @Id
     @GeneratedValue
     private long id;
@@ -79,6 +83,7 @@ public class Goal {
     }
 
     public int getCalorieGoal() {
+
         return calorieGoal;
     }
 
@@ -105,8 +110,40 @@ public class Goal {
     public int getCarbGoal() {
         return carbGoal;
     }
-
     public void setCarbGoal(int carbGoal) {
         this.carbGoal = carbGoal;
+    }
+
+
+
+
+
+    public double getProteinCaloriesGoal() {
+
+        return Math.ceil(calorieGoal * (proteinGoal / 100.0));
+    }
+
+    public double getProteinGramsGoal() {
+
+        return Math.ceil(getProteinCaloriesGoal() / PROTEIN_CALORIES_PER_GRAM);
+    }
+
+    public double getFatCaloriesGoal() {
+
+        return Math.ceil(calorieGoal * (fatGoal / 100.0));
+    }
+
+    public double getFatGramsGoal() {
+
+        return Math.ceil(getFatCaloriesGoal() / FAT_CALORIES_PER_GRAM);
+    }
+
+    public double getCarbCaloriesGoal() {
+
+        return Math.ceil(calorieGoal * (carbGoal / 100.0));
+    }
+
+    public double getCarbGramsGoal() {
+        return Math.ceil(getCarbCaloriesGoal() / CARBOHYDRATE_CALORIES_PER_GRAM);
     }
 }
