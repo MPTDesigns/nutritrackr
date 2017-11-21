@@ -11,4 +11,9 @@ public class TestController {
     public String getHomePage() {
         return "Site currently under construction";
     }
+
+    @GetMapping(path = "/test")
+    public String getTestPage() {
+        return "test/test";
+    }
 }
