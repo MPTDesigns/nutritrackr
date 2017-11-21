@@ -114,32 +114,23 @@ public class Goal {
         this.carbGoal = carbGoal;
     }
 
-
-
-
-
     public double getProteinCaloriesGoal() {
-
         return Math.ceil(calorieGoal * (proteinGoal / 100.0));
     }
 
     public double getProteinGramsGoal() {
-
         return Math.ceil(getProteinCaloriesGoal() / PROTEIN_CALORIES_PER_GRAM);
     }
 
     public double getFatCaloriesGoal() {
-
         return Math.ceil(calorieGoal * (fatGoal / 100.0));
     }
 
     public double getFatGramsGoal() {
-
         return Math.ceil(getFatCaloriesGoal() / FAT_CALORIES_PER_GRAM);
     }
 
     public double getCarbCaloriesGoal() {
-
         return Math.ceil(calorieGoal * (carbGoal / 100.0));
     }
 
