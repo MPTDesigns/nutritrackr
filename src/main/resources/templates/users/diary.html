@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="partials/header :: head('Diary')">
-    <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 <div>
@@ -9,25 +8,34 @@
 </div>
 
 <div class="container">
-
-    <table class="bordered">
-        <tr>
-            Total:
-            <th th:colspan="4">
-                <span class="first-title">Breakfast</span>
-                <span class="first-button right"><a th:href="@{/searchFood.html}">ADD</a></span>
-            </th>
-
-        </tr>
-        <tr>
-            <td>Calories</td>
-            <td>Protein</td>
-            <td>Fat</td>
-            <td>Carbohydrates</td>
-        </tr>
-
-    </table>
-
+    <div class="row">
+        <table class="bordered col s12">
+            <thead>
+                <tr>
+                    <th th:colspan="5">
+                        <span class="first-title">Breakfast</span>
+                        <a class="btn right" th:href="@{/foods/search/}">Add</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <th>Calories</th>
+                    <th>Protein</th>
+                    <th>Fat</th>
+                    <th>Carbohydrates</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="breakfastItem : ${breakfastItems}">
+                    <td th:text="${breakfastItem.description}"></td>
+                    <td th:text="${breakfastItem.calories}"></td>
+                    <td th:text="${breakfastItem.protein}"></td>
+                    <td th:text="${breakfastItem.fat}"></td>
+                    <td th:text="${breakfastItem.carbohydrates}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <table class="bordered">
         <tr>
             Total:
