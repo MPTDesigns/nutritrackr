@@ -28,7 +28,7 @@ public class FoodDrinksController {
     @PostMapping("/foods/add")
     public String addNewFoodDrink(@ModelAttribute FoodDrink foodDrink) {
         foodDrinks.save(foodDrink);
-        return "redirect:/foods";
+        return "redirect:/diary";
     }
 
     @GetMapping("/foods/search")
