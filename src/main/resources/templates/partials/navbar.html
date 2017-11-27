@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+<body>
+    <div th:fragment="navbar" th:remove="tag">
+        <ul id="goals-dropdown" class="dropdown-content">
+            <li><a th:href="@{/goals/view}">Current Goals</a></li>
+            <li><a th:href="@{/goals/create}">Update Goals</a></li>
+        </ul>
+        <ul id="progress-dropdown" class="dropdown-content">
+            <li><a th:href="@{/progress/daily}">Daily Progress</a></li>
+            <li><a th:href="@{/progress/weekly}">Weekly Progress</a></li>
+        </ul>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Nutritrackr</a>
+                <a href="#" data-activates="mobile-side-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a th:href="@{/diary}">Diary</a></li>
+                    <li><a class="dropdown-button" href="#" data-activates="goals-dropdown">Goals<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-button" href="#" data-activates="progress-dropdown">Progress<i class="material-icons right">arrow_drop_down</i></a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-side-nav">
+                    <li><a th:href="@{/diary}">Diary</a></li>
+
+                    <li><div class="divider"></div></li>
+
+                    <li><a class="subheader" href="#">Goals</a></li>
+                    <ul>
+                        <li><a th:href="@{/goals/view}">Current Goals</a></li>
+                        <li><a th:href="@{/goals/create}">Update Goals</a></li>
+                    </ul>
+
+                    <li><div class="divider"></div></li>
+
+                    <li><a class="subheader" href="#">Progress</a></li>
+                    <ul>
+                        <li><a th:href="@{/progress/daily}">Daily Progress</a></li>
+                        <li><a th:href="@{/progress/weekly}">Weekly Progress</a></li>
+                    </ul>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

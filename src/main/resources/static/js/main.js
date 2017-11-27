@@ -1,5 +1,9 @@
 (function($) {
     $(document).ready(function () {
+        // navbar initializations
+        $(".dropdown-button").dropdown();
+        $(".button-collapse").sideNav();
+
         $('.btn.dec-btn').click(function(){
             var inputToDecrement = $(this).siblings("input[type=number]")[0];
 

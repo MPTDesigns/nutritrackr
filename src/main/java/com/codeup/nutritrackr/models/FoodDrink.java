@@ -1,6 +1,8 @@
 package com.codeup.nutritrackr.models;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -33,6 +35,9 @@ public class FoodDrink {
 
     @ManyToMany(mappedBy = "foodItems")
     private List<Meal> meals;
+
+    @Autowired
+    public FoodDrink(){}
 
     public FoodDrink(String description, int calories, int protein, int fat, int carbohydrates) {
         this.description = description;
