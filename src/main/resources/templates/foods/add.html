@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="@{partials/header::head('Add Food')}"></head>
+<body>
+<nav th:replace="@{partials/navbar::navbar}"></nav>
+<div class="container">
+    <div class="row">
+        <h2>Add Food</h2>    
+    </div>
+    <div class="row">
+        <form th:action="@{/foods/add}" method="post" class="col s12" th:object="${newFoodDrink}">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" th:field="*{description}" id="description" class="validate" />
+                    <label for="description">Description</label>
+                </div>
+            </div>
+            <div class="row">
+                <h3 class="col s12">Per Serving</h3>
+            </div>
+            <div class="row">
+                <div class="input-field col m3 s6">
+                    <input type="number" th:field="*{calories}" class="validate" />
+                    <label for="calories">Calories</label>
+                </div>
+                <div class="input-field col m3 s6">
+                    <input type="number" th:field="*{protein}" class="validate" />
+                    <label for="protein">Protein</label>
+                </div>
+                <div class="input-field col m3 s6">
+                    <input type="number" th:field="*{fat}" class="validate" />
+                    <label for="fat">Fat</label>
+                </div>
+                <div class="input-field col m3 s6">
+                    <input type="number" th:field="*{carbohydrates}" class="validate" />
+                    <label for="carbohydrates">Carbohydrates</label>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn col s3">Add Food</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div th:replace="partials/scripts::scripts"></div>
+</body>
+</html>
