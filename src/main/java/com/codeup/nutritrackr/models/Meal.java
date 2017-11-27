@@ -9,6 +9,9 @@ import java.util.List;
 @Entity
 @Table(name = "Meals")
 public class Meal {
+    public static void save(Meal meal) {
+    }
+
     private enum MealName {
         BREAKFAST,
         LUNCH,
@@ -41,5 +44,9 @@ public class Meal {
 
     @Autowired
     public Meal() {
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
