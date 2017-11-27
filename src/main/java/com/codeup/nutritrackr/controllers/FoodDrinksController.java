@@ -26,15 +26,18 @@ public class FoodDrinksController {
     }
 
     @PostMapping("/foods/add")
-    @ResponseBody
     public String addNewFoodDrink(@ModelAttribute FoodDrink foodDrink) {
-        String response = "";
         foodDrinks.save(foodDrink);
+        return "redirect:/foods";
+    }
 
+    @GetMapping("/foods")
+    @ResponseBody
+    public String showFoods() {
+        String response = "";
         for (FoodDrink fd : foodDrinks.findAll()) {
-            String.format("id: %d\ndescription: %s\n\n", fd.getId(), fd.getDescription());
+            response += String.format("id: %d\ndescription: %s\n\n", fd.getId(), fd.getDescription());
         }
-
         return response;
     }
 }
