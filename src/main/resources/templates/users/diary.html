@@ -1,11 +1,88 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <title>Diary</title>
+<head th:replace="partials/header :: head('Diary')">
+    <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
+<div>
+    <a th:href="0" type="text" class="datepicker">Today</a>
+</div>
 
-<h1>This will be your food diary</h1>
+<div class="container">
 
+    <table class="bordered">
+        <tr>
+            Total:
+            <th th:colspan="4">
+                <span class="first-title">Breakfast</span>
+                <span class="first-button right"><a th:href="@{/searchFood.html}">ADD</a></span>
+            </th>
+
+        </tr>
+        <tr>
+            <td>Calories</td>
+            <td>Protein</td>
+            <td>Fat</td>
+            <td>Carbohydrates</td>
+        </tr>
+
+    </table>
+
+    <table class="bordered">
+        <tr>
+            Total:
+            <th th:colspan="4">
+                <span>Lunch</span>
+                <span class="second-button right"><input type="submit" name="submit" value="ADD"/></span>
+            </th>
+
+        </tr>
+        <tr>
+            <td>Calories</td>
+            <td>Protein</td>
+            <td>Fat</td>
+            <td>Carbohydrates</td>
+        </tr>
+
+    </table>
+
+    <table class="bordered">
+        <tr>
+            Total:
+            <th th:colspan="4">
+                <span>Dinner</span>
+                <span class="third-button right"><input type="submit" name="submit" value="ADD"/></span>
+            </th>
+
+        </tr>
+        <tr>
+            <td>Calories</td>
+            <td>Protein</td>
+            <td>Fat</td>
+            <td>Carbohydrates</td>
+        </tr>
+
+    </table>
+
+    <table class="bordered">
+        <tr>
+            Total:
+            <th th:colspan="4">
+                <span>Snack</span>
+                <span class="fourth-button right"><input type="submit" name="submit" value="ADD"/></span>
+            </th>
+
+        </tr>
+        <tr>
+            <td>Calories</td>
+            <td>Protein</td>
+            <td>Fat</td>
+            <td>Carbohydrates</td>
+        </tr>
+
+    </table>
+
+</div>
+<div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
