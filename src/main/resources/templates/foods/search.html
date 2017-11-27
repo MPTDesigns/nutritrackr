@@ -1,9 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/partials::head('title')"></head>
+<head th:replace="partials/header::head('Search Foods')"></head>
 <body>
-<nav th:replace="partials/partials::navbar"></nav>
+<nav th:replace="partials/navbar::navbar"></nav>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h2>Search Foods</h2>
+            <div class="row">
+                <form th:action="@{/foods/search}" method="post" class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" id="search-term" name="search-terms" class="validate" />
+                            <label for="search-term">Search Description</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btn col s12 m4" type="submit">Search Foods</button>
+                        <a th:href="@{/foods/add}" class="btn col s12 m4 right">Add New Food</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="section" th:if="${results != null}">
+        <div class="row">
+            <h4 class="col s12">Search Results</h4>
+            <table class="col s12" th:if="${!results.isEmpty()}">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Calories</th>
+                        <th>Protein</th>
+                        <th>Fat</th>
+                        <th>Carbs</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="food : ${results}">
+                        <td th:text="${food.description}"></td>
+                        <td th:text="${food.calories}"></td>
+                        <td th:text="${food.protein}"></td>
+                        <td th:text="${food.fat}"></td>
+                        <td th:text="${food.carbohydrates}"></td>
+                        <td><a href="#" class="btn-floating"><i class="material-icons">add</i></a></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td>Results Found: <span th:text="${results.size()}"></span></td>
+                </tr>
+                </tfoot>
+            </table>
 
-<footer th:include="partials/partials::footer"></footer>
+            <p class="col s12" th:if="${results.isEmpty()}">No results found.</p>
+        </div>
+    </div>
+</div>
+<footer th:replace="partials/scripts::scripts"></footer>
 </body>
 </html>
