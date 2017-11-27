@@ -26,4 +26,8 @@ public class FoodDrinks {
     public List<FoodDrink> findAll() {
         return (List<FoodDrink>) foodDrinksDao.findAll();
     }
+
+    public List<FoodDrink> searchFoodDrinks(String description) {
+        return (List<FoodDrink>) foodDrinksDao.findAllByDescriptionContainingIgnoreCase(description);
+    }
 }
