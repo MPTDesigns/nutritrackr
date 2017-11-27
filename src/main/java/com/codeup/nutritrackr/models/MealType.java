@@ -1,4 +1,8 @@
 package com.codeup.nutritrackr.models;
 
-public class MealType {
+public enum MealType {
+    BREAKFAST,
+    LUNCH,
+    DINNER,
+    SNACK
 }
