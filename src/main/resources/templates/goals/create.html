@@ -8,34 +8,36 @@
     <title>Document</title>
 </head>
 <body>
-<div class="container">
-    <h2>Set your goal!</h2>
+<div style="border: 1px solid darkgrey; width: 350px;
+     border-radius: 20px; height: 300px; margin-top: 60px; margin-left: 25%">
+    <h2 style="margin-left: 20%;">Set your goal!</h2>
+    <hr/>
     <form method="post" th:action="@{/goals/create}" th:object="${goal}">
-        <div>
+        <div style="margin-top: 20px; margin-left: 10%;">
             <label for="calorieGoal">Calories:</label>
             <button type="button" class="btn dec-btn" id="calDecrementBtn">&minus;</button>
             <input type="number" th:field="*{calorieGoal}" id="calorieGoal" placeholder="0"/>
             <button type="button" class="btn inc-btn" id="calories-inc-btn">&plus;</button>
         </div>
-        <div>
+        <div style="margin-top: 20px; margin-left: 10%;">
             <label for="proteinGoal">Protein(%):</label>
             <button type="button" class="btn dec-btn" id="proDecrementBtn">&minus;</button>
             <input type='number' th:field="*{proteinGoal}" name='proteinGoal' id='proteinGoal' value="0" data-max="100" placeholder="%"/>
             <button type="button" class="btn inc-btn percent" id="proIncrementBtn">&plus;</button>
         </div>
-        <div>
+        <div style="margin-top: 20px; margin-left: 10%;">
             <label for="fatGoal">Fat(%):</label>
             <button type="button" class="btn dec-btn" id="fatDecrementBtn">&minus;</button>
             <input type='number' th:field="*{fatGoal}" name='fatGoal' id='fatGoal' value="0" data-max="100" placeholder="%"/>
             <button type="button" class="btn inc-btn percent" id="fatIncrementBtn">&plus;</button>
         </div>
-        <div>
+        <div style="margin-top: 20px; margin-left: 10%;">
             <label for="carbGoal">Carbohydrate(%):</label>
             <button type="button" class="btn dec-btn" id="carbDecrementBtn">&minus;</button>
             <input type='number' th:field="*{carbGoal}" name='carbGoal' id='carbGoal' value="0" data-max="100" placeholder="%"/>
             <button type="button" class="btn inc-btn percent" id="carbIncrementBtn">&plus;</button>
         </div>
-        <input type="submit" value="Update Goals" />
+        <input style="margin-top: 20px; margin-left: 40%;" type="submit" value="Update Goals" />
     </form>
     <script th:src="@{/js/main.js}"></script>
 </div>

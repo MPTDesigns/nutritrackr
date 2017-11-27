@@ -1,15 +1,43 @@
-table {
-    background-color: #d5eec4;
-            width:100%;
-        }
-table, th, td {
-    border: 1px solid #363636;
-    border-collapse: collapse;
-        }
-th, td {
-    padding: 5px;
-    text-align: left;
-        }
-h1{
-    text-align: center;
-        }
+/*}*/
+/*input{*/
+    /*margin-left: 10%;*/
+/*}*/
+/*.centered{*/
+    /*margin-bottom: 20px;*/
+/*}*/
+/*thead{*/
+    /*margin-bottom: 20px;*/
+/*}*/
+/*#container{*/
+    /*border: 1px solid #b7cdd3;*/
+    /*background-color: #dff3ff;*/
+    /*margin: 50px auto;*/
+    /*width: 380px;*/
+    /*height: 500px;*/
+    /*border-radius: 20px;*/
+/*}*/
+/*.updateGoal{*/
+    /*border: 1px solid #b7cdd3;*/
+    /*margin: 50px auto;*/
+    /*width: 300px;*/
+    /*height: 320px;*/
+    /*border-radius: 20px;*/
+/*}*/
+/*input{*/
+/*display: block;*/
+    /*margin-top: 30px;*/
+    /*width: 80%;*/
+    /*height: 30px;*/
+    /*margin-left: 10%;*/
+/*}*/
+/*button{*/
+    /*margin-top: 30px;*/
+    /*margin-left: 40%;*/
+/*}*/
+/*h4, h5{*/
+/*margin-left: 25%;*/
+/*}*/
+/*.glyphicon{*/
+    /*font-family: inherit;*/
+/*}*/
+

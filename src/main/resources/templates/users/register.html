@@ -1,43 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/header :: head('register')">
     <meta charset="UTF-8" />
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
-    <h2>Hello from register!</h2>
+<div class="container" style="border: 1px solid #b7cdd3; margin-top: 60px;
+      width: 400px; height: 450px; border-radius: 20px;">
+
+<h4 style="margin-left: 12%">Hello from register!</h4>
         <form th:action="@{/register}" method="POST" th:object="${user}">
             <div>
-            First Name:
-            <input type="text" th:field="*{firstName}" placeholder="First Name" required="required" />
+            <input style="border: 1px solid darkgrey; width: 300px; height: 35px; margin-left: 11%;"
+                   type="text" th:field="*{firstName}"
+                   placeholder="First name" required="required" />
             </div>
-
             <div>
-            Last Name:
-            <input type="text" th:field="*{lastName}" placeholder="Last Name" required="required" />
+            <input style="border: 1px solid darkgrey; width: 300px; height: 35px; margin-left: 11%;"
+                   type="text" th:field="*{lastName}"
+                   placeholder="Last name" required="required" />
             </div>
-
             <div>
-            Email:
-            <input type="text" th:field="*{email}" placeholder="Enter Email" required="required" />
+            <input style="border: 1px solid darkgrey; width: 300px; height: 35px; margin-left: 11%;"
+                   type="text" th:field="*{email}"
+                   placeholder="Email" required="required" />
             </div>
-
             <div>
-            Password:
-            <input type="password" th:field="*{password}" placeholder="Enter Password" required="required" />
+            <input style="border: 1px solid darkgrey; width: 300px; height: 35px; margin-left: 11%;"
+                   type="password" th:field="*{password}"
+                   placeholder="Password" required="required" />
             </div>
-
             <div>
-            Confirm Password:
-            <input type="password" id="confirmPwd" name="confirmPwd" placeholder="Confirm Password" required="required" />
-            </div>
-        <div>
-        <button type="button"  class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn">Register</button>
+            <input style="border: 1px solid darkgrey; width: 300px; height: 35px; margin-left: 11%;"
+                   type="password" id="confirmPwd" name="confirmPwd"
+                   placeholder="Confirm password"
+                   required="required" />
+            </div><div>
+        <button type="submit" class="signupbtn" style="margin-left: 40%; margin-top: 35px">Submit</button>
         </div>
     </form>
+</div>
 </body>
 </html>

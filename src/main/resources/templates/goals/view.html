@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="css/site.css"/>
+<head th:replace="partials/header :: head('View Goals')">
 </head>
 <body>
-<h1>View your goals!</h1>
-    <form method="post" th:action="@{/goals/view}">
-    <div>
-        <table>
+<div class="container" style="border: 1px solid darkgrey; width: 300px;
+     border-radius: 20px; height: 300px; margin-top: 60px;">
+    <h5 style="margin-left: 20%;">View your goals!</h5>
+    <table class="centered">
+        <thead>
             <tr>
                 <th>Calories</th>
                 <th th:text="${userGoals.calorieGoal}"></th>
                 <th>Calories from</th>
                 <th>Grams</th>
             </tr>
+        <hr/>
+        </thead>
+        <tbody>
             <tr>
                 <td>Protein</td>
                 <td><span th:text="${userGoals.proteinGoal}"></span>%</td>
@@ -32,8 +35,10 @@
                 <td th:text="${userGoals.carbCaloriesGoal}"></td>
                 <td th:text="${userGoals.carbGramsGoal}"></td>
             </tr>
-        </table>
-    </div>
-</form>
+        </tbody>
+    </table>
+    <h3></h3>
+</div>
+<div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
