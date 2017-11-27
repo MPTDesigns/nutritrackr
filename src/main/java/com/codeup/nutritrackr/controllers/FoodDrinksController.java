@@ -5,10 +5,10 @@ import com.codeup.nutritrackr.services.FoodDrinks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class FoodDrinksController {
@@ -31,13 +31,14 @@ public class FoodDrinksController {
         return "redirect:/foods";
     }
 
-    @GetMapping("/foods")
-    @ResponseBody
-    public String showFoods() {
-        String response = "";
-        for (FoodDrink fd : foodDrinks.findAll()) {
-            response += String.format("id: %d\ndescription: %s\n\n", fd.getId(), fd.getDescription());
-        }
-        return response;
+    @GetMapping("/foods/search")
+    public String showFoodDrinksSearchFormAndResults() {
+        return "foods/search";
+    }
+
+    @PostMapping("/foods/search")
+    public String showSearchResults(@RequestParam("search-terms") String searchTerms, Model model) {
+        model.addAttribute("results", foodDrinks.searchFoodDrinks(searchTerms));
+        return "foods/search";
     }
 }
