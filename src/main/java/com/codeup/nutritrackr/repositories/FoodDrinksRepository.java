@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FoodDrinksRepository extends CrudRepository<FoodDrink, Long> {
-
+    Iterable<FoodDrink> findAllByDescriptionContainingIgnoreCase(String description);
 }
