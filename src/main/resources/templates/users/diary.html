@@ -7,80 +7,139 @@
 <div>
     <a th:href="0" type="text" class="datepicker">Today</a>
 </div>
-
+<div th:text="${diaryDate.toString()}"></div>
 <div class="container">
+    <div class="row">
+        <table class="bordered col s12">
+            <thead>
+            <tr>
+                <th th:colspan="5">
+                    <span class="first-title">Breakfast</span>
+                </th>
+                <th>
+                    <a class="btn right" th:href="@{/foods/search/{mealType}(mealType=${breakfast.mealType})}">Add</a>
+                </th>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <th>Calories</th>
+                <th>Protein</th>
+                <th>Fat</th>
+                <th>Carbohydrates</th>
+                <th>Remove</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="breakfastItem : ${breakfast.foodItems}">
+                <td th:text="${breakfastItem.description}"></td>
+                <td th:text="${breakfastItem.calories}"></td>
+                <td th:text="${breakfastItem.protein}"></td>
+                <td th:text="${breakfastItem.fat}"></td>
+                <td th:text="${breakfastItem.carbohydrates}"></td>
+                <td><a href="#" class="btn-floating"><i class="material-icons">remove</i></a></td>
+            </tr>
+            <tr>
+                <td>Total:</td>
+                <td th:text="${breakfast.totalCalories}"></td>
+                <td th:text="${breakfast.totalProtein}"></td>
+                <td th:text="${breakfast.totalFat}"></td>
+                <td th:colspan="2" th:text="${breakfast.totalCarbohydrates}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <table class="bordered col s12">
+            <thead>
+                <tr>
+                    <th th:colspan="5">
+                        <span class="first-title">Lunch</span>
+                    </th>
+                    <th>
+                        <a class="btn right" th:href="@{/foods/search/{mealType}(mealType=${lunch.mealType})}">Add</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <th>Calories</th>
+                    <th>Protein</th>
+                    <th>Fat</th>
+                    <th>Carbohydrates</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="lunchItem : ${lunch.foodItems}">
+                    <td th:text="${lunchItem.description}"></td>
+                    <td th:text="${lunchItem.calories}"></td>
+                    <td th:text="${lunchItem.protein}"></td>
+                    <td th:text="${lunchItem.fat}"></td>
+                    <td th:text="${lunchItem.carbohydrates}"></td>
+                    <td><a href="#" class="btn-floating"><i class="material-icons">remove</i></a></td>
+                </tr>
+                <tr>
+                    <td>Total:</td>
+                    <td th:text="${lunch.totalCalories}"></td>
+                    <td th:text="${lunch.totalProtein}"></td>
+                    <td th:text="${lunch.totalFat}"></td>
+                    <td th:colspan="2" th:text="${lunch.totalCarbohydrates}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--<table class="bordered">-->
+        <!--<tr>-->
+            <!--Total:-->
+            <!--<th th:colspan="4">-->
+                <!--<span>Lunch</span>-->
+                <!--<span class="second-button right"><input type="submit" name="submit" value="ADD"/></span>-->
+            <!--</th>-->
 
-    <table class="bordered">
-        <tr>
-            Total:
-            <th th:colspan="4">
-                <span class="first-title">Breakfast</span>
-                <span class="first-button right"><a th:href="@{/searchFood.html}">ADD</a></span>
-            </th>
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Calories</td>-->
+            <!--<td>Protein</td>-->
+            <!--<td>Fat</td>-->
+            <!--<td>Carbohydrates</td>-->
+        <!--</tr>-->
 
-        </tr>
-        <tr>
-            <td>Calories</td>
-            <td>Protein</td>
-            <td>Fat</td>
-            <td>Carbohydrates</td>
-        </tr>
+    <!--</table>-->
 
-    </table>
+    <!--<table class="bordered">-->
+        <!--<tr>-->
+            <!--Total:-->
+            <!--<th th:colspan="4">-->
+                <!--<span>Dinner</span>-->
+                <!--<span class="third-button right"><input type="submit" name="submit" value="ADD"/></span>-->
+            <!--</th>-->
 
-    <table class="bordered">
-        <tr>
-            Total:
-            <th th:colspan="4">
-                <span>Lunch</span>
-                <span class="second-button right"><input type="submit" name="submit" value="ADD"/></span>
-            </th>
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Calories</td>-->
+            <!--<td>Protein</td>-->
+            <!--<td>Fat</td>-->
+            <!--<td>Carbohydrates</td>-->
+        <!--</tr>-->
 
-        </tr>
-        <tr>
-            <td>Calories</td>
-            <td>Protein</td>
-            <td>Fat</td>
-            <td>Carbohydrates</td>
-        </tr>
+    <!--</table>-->
 
-    </table>
+    <!--<table class="bordered">-->
+        <!--<tr>-->
+            <!--Total:-->
+            <!--<th th:colspan="4">-->
+                <!--<span>Snack</span>-->
+                <!--<span class="fourth-button right"><input type="submit" name="submit" value="ADD"/></span>-->
+            <!--</th>-->
 
-    <table class="bordered">
-        <tr>
-            Total:
-            <th th:colspan="4">
-                <span>Dinner</span>
-                <span class="third-button right"><input type="submit" name="submit" value="ADD"/></span>
-            </th>
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Calories</td>-->
+            <!--<td>Protein</td>-->
+            <!--<td>Fat</td>-->
+            <!--<td>Carbohydrates</td>-->
+        <!--</tr>-->
 
-        </tr>
-        <tr>
-            <td>Calories</td>
-            <td>Protein</td>
-            <td>Fat</td>
-            <td>Carbohydrates</td>
-        </tr>
-
-    </table>
-
-    <table class="bordered">
-        <tr>
-            Total:
-            <th th:colspan="4">
-                <span>Snack</span>
-                <span class="fourth-button right"><input type="submit" name="submit" value="ADD"/></span>
-            </th>
-
-        </tr>
-        <tr>
-            <td>Calories</td>
-            <td>Protein</td>
-            <td>Fat</td>
-            <td>Carbohydrates</td>
-        </tr>
-
-    </table>
+    <!--</table>-->
 
 </div>
 <div th:replace="partials/scripts :: scripts"></div>
