@@ -28,20 +28,20 @@ public class GoalsController {
         User user = users.findOne(1);
         Goal userGoals = goals.findMostRecentUserGoals(user);
         if (userGoals == null) {
-            return "redirect:/goals/create";
+            return "redirect:/goals/set";
         }
         model.addAttribute("userGoals", userGoals);
 
         return "goals/view";
     }
 
-    @GetMapping("/goals/create")
+    @GetMapping("/goals/set")
     public String createUserGoals(Model model) {
         model.addAttribute("goal", goals.findMostRecentUserGoals(users.findOne(1)));
-        return "goals/create";
+        return "goals/set";
     }
 
-    @PostMapping("/goals/create")
+    @PostMapping("/goals/set")
     public String saveNewGoal(@ModelAttribute Goal goal) {
         User user = users.findOne(1);
         goal.setUser(user);

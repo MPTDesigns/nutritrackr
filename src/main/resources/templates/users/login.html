@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/header :: head('log in')">
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
-<nav></nav>
 <div class="container">
     <div class="row">
-        <h1>Welcome to Nutritraker</h1>
-        <h3>Please Log in</h3>
-
-        <form th:action="@{/login}" method="post">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="text" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" name="password" type="password" class="form-control"/>
-            </div>
+        <div class="row">
+        <h3>Welcome to Nutritraker</h3>
+        </div>
+        <h4>Please Log in</h4>
+        <form class="col s12" th:action="@{/login}" method="post">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" name="email" type="text" class="form-control"/>
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">https</i>
+                    <input id="password" name="password" type="password" class="form-control"/>
+                    <label for="password">Password</label>
+                </div>
             <input type="submit" value="Log In" class="btn btn-primary"/>
+            </div>
         </form>
-        <h3>Don't have an account?</h3>
+        <h5>Don't have an account?</h5>
         <a th:href="@{/register}">Register Here</a>
     </div>
 </div>
+<div th:replace="partials/scripts::scripts"></div>
 </body>
 </html>

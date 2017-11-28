@@ -8,42 +8,46 @@
     <title>Document</title>
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 </head>
 <body>
-<div class="container" style="border: 1px solid #b7cdd3; margin-top: 60px;
-      width: 400px; height: 450px; border-radius: 20px;">
-
-<h4 style="margin-left: 12%">Hello from register!</h4>
-        <form th:action="@{/register}" method="POST" th:object="${user}">
-            <div>
-            <input style="border: 1px solid darkgrey; width: 300px; height: 35px; margin-left: 11%;"
-                   type="text" th:field="*{firstName}"
-                   placeholder="First name" required="required" />
-            </div>
-            <div>
-            <input style="border: 1px solid darkgrey; width: 300px; height: 35px; margin-left: 11%;"
-                   type="text" th:field="*{lastName}"
-                   placeholder="Last name" required="required" />
-            </div>
-            <div>
-            <input style="border: 1px solid darkgrey; width: 300px; height: 35px; margin-left: 11%;"
-                   type="text" th:field="*{email}"
-                   placeholder="Email" required="required" />
-            </div>
-            <div>
-            <input style="border: 1px solid darkgrey; width: 300px; height: 35px; margin-left: 11%;"
-                   type="password" th:field="*{password}"
-                   placeholder="Password" required="required" />
-            </div>
-            <div>
-            <input style="border: 1px solid darkgrey; width: 300px; height: 35px; margin-left: 11%;"
-                   type="password" id="confirmPwd" name="confirmPwd"
-                   placeholder="Confirm password"
-                   required="required" />
-            </div><div>
-        <button type="submit" class="signupbtn" style="margin-left: 40%; margin-top: 35px">Submit</button>
+<div class="container">
+    <div class="row">
+        <div class="row">
+<h4>Hello from register!</h4>
         </div>
+        <form class="col s12" id="reg-form" th:action="@{/register}" method="POST" th:object="${user}">
+            <div class="row">
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">account_circle</i>
+                <input type="text" th:field="*{firstName}" required="required" />
+                <label>First Name</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">account_circle</i>
+                <input type="text" th:field="*{lastName}" class="validate" />
+                <label>Last Name</label>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">email</i>
+                <input id="email_prefix" type="text" th:field="*{email}" required="required" />
+                <label for="email_prefix">Email</label>
+            </div>
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">https</i>
+                <input type="password" th:field="*{password}" required="required" />
+                <label>Password</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">https</i>
+                <input  type="password" id="confirmPwd" name="confirmPwd" required="required" />
+                <label for="confirmPwd">Confirm password</label>
+            </div>
+        <button type="submit" class="signupbtn">Submit</button>
     </form>
 </div>
+</div>
+<div th:replace="partials/scripts::scripts"></div>
 </body>
 </html>
