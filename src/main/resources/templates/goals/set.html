@@ -10,6 +10,11 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
+<nav>
+    <div class="nav-wrapper">
+        <a href=" " class="brand-logo right"></a>
+    </div>
+</nav>
 <div class="container">
     <div class="row">
         <div class="row">
@@ -27,7 +32,7 @@
                     <div class="col s4">
                         <input type="number" th:field="*{calorieGoal}" id="calorieGoal" placeholder="0"/>
                     </div>
-                    <div class="cols2">
+                        <div class="cols2">
                         <button type="button" class="btn inc-btn" id="calories-inc-btn">&plus;</button>
                     </div>
                     <div class="input-field col s12">
@@ -77,7 +82,10 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" value="Update Goals"/>
+            <!--<input type="submit" value="Update Goals"/>-->
+            <button class="btn waves-effect waves-light" type="Update Goals" name="action">Update Goals
+                <i class="material-icons right">send</i>
+            </button>
         </form>
 
     </div>
