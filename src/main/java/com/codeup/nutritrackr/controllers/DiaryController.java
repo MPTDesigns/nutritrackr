@@ -34,12 +34,12 @@ public class DiaryController {
 //        mealToSave.setFoodItems(new ArrayList<>());
 //        mealToSave.getFoodItems().add(foodDrinks.findOne(3));
 //        meals.save(mealToSave);
-        Meal breakfast = meals.findMealForDayByType(
-            users.findOne(1),
-            LocalDate.now(),
-            MealType.BREAKFAST
-        );
-        model.addAttribute("breakfastItems", breakfast.getFoodItems());
+//        Meal breakfast = meals.findMealForDayByType(
+//            users.findOne(1),
+//            LocalDate.now(),
+//            MealType.BREAKFAST
+//        );
+//        model.addAttribute("breakfastItems", breakfast.getFoodItems());
 
         return "users/diary";
     }

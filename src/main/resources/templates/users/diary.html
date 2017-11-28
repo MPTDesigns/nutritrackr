@@ -36,60 +36,90 @@
             </tbody>
         </table>
     </div>
-    <table class="bordered">
-        <tr>
-            Total:
-            <th th:colspan="4">
-                <span>Lunch</span>
-                <span class="second-button right"><input type="submit" name="submit" value="ADD"/></span>
-            </th>
-
-        </tr>
-        <tr>
-            <td>Calories</td>
-            <td>Protein</td>
-            <td>Fat</td>
-            <td>Carbohydrates</td>
-        </tr>
-
-    </table>
-
-    <table class="bordered">
-        <tr>
-            Total:
-            <th th:colspan="4">
-                <span>Dinner</span>
-                <span class="third-button right"><input type="submit" name="submit" value="ADD"/></span>
-            </th>
-
-        </tr>
-        <tr>
-            <td>Calories</td>
-            <td>Protein</td>
-            <td>Fat</td>
-            <td>Carbohydrates</td>
-        </tr>
-
-    </table>
-
-    <table class="bordered">
-        <tr>
-            Total:
-            <th th:colspan="4">
-                <span>Snack</span>
-                <span class="fourth-button right"><input type="submit" name="submit" value="ADD"/></span>
-            </th>
-
-        </tr>
-        <tr>
-            <td>Calories</td>
-            <td>Protein</td>
-            <td>Fat</td>
-            <td>Carbohydrates</td>
-        </tr>
-
-    </table>
-
+    <div class="row">
+        <table class="bordered col s12">
+            <thead>
+            <tr>
+                <th th:colspan="5">
+                    <span class="second-title">Lunch</span>
+                    <a class="btn right" th:href="@{/foods/search/}">Add</a>
+                </th>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <th>Calories</th>
+                <th>Protein</th>
+                <th>Fat</th>
+                <th>Carbohydrates</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="lunchItem : ${lunchItems}">
+                <td th:text="${lunchItem.description}"></td>
+                <td th:text="${lunchItem.calories}"></td>
+                <td th:text="${lunchItem.protein}"></td>
+                <td th:text="${lunchItem.fat}"></td>
+                <td th:text="${lunchItem.carbohydrates}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <table class="bordered col s12">
+            <thead>
+            <tr>
+                <th th:colspan="5">
+                    <span class="third-title">Dinner</span>
+                    <a class="btn right" th:href="@{/foods/search/}">Add</a>
+                </th>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <th>Calories</th>
+                <th>Protein</th>
+                <th>Fat</th>
+                <th>Carbohydrates</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="dinnerItem : ${dinnerItems}">
+                <td th:text="${dinnerItem.description}"></td>
+                <td th:text="${dinnerItem.calories}"></td>
+                <td th:text="${dinnerItem.protein}"></td>
+                <td th:text="${dinnerItem.fat}"></td>
+                <td th:text="${dinnerItem.carbohydrates}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <table class="bordered col s12">
+            <thead>
+            <tr>
+                <th th:colspan="5">
+                    <span class="second-title">Snack</span>
+                    <a class="btn right" th:href="@{/foods/search/}">Add</a>
+                </th>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <th>Calories</th>
+                <th>Protein</th>
+                <th>Fat</th>
+                <th>Carbohydrates</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="snackItem : ${snackItems}">
+                <td th:text="${snackItem.description}"></td>
+                <td th:text="${snackItem.calories}"></td>
+                <td th:text="${snackItem.protein}"></td>
+                <td th:text="${snackItem.fat}"></td>
+                <td th:text="${snackItem.carbohydrates}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 <div th:replace="partials/scripts :: scripts"></div>
 </body>
