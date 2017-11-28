@@ -14,6 +14,6 @@ public class TestController {
 
     @GetMapping(path = "/test")
     public String getTestPage() {
-        return "test/test";
+        return "users/home";
     }
 }
