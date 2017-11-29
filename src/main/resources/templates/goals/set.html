@@ -13,21 +13,21 @@
             <div class="row">
                 <div class="input-field col m6">
                     <input type="number" th:field="*{calorieGoal}" />
-                    <label>Calories:</label>
+                    <label for="calorieGoal">Calories:</label>
                 </div>
                 <div class="input-field col s6">
                     <input type="number" th:field="*{proteinGoal}" name='proteinGoal'  value="0" data-max="100"/>
-                    <label>Protein(%):</label>
+                    <label for="proteinGoal">Protein(%):</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
                     <input type="number" th:field="*{fatGoal}" name='fatGoal'  value="0" data-max="100"/>
-                    <label>Fat(%):</label>
+                    <label for="fatGoal">Fat(%):</label>
                 </div>
                 <div class="input-field col s6">
                     <input type="number" th:field="*{carbGoal}" name='carbGoal' value="0" data-max="100"/>
-                    <label>Carbohydrate(%):</label>
+                    <label for="carbGoal">Carbohydrate(%):</label>
                 </div>
             </div>
             <button class="btn waves-effect waves-light" type="Update Goals" name="action">Update Goals
