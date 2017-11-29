@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header::head('Add To Meal')"></head>
+<body>
+<nav th:replace="partials/navbar::navbar"></nav>
+<div class="container">
+    <div class="row">
+        <h2>Add To Meal</h2>
+        <form th:action="@{/foods/addItem}" method="post">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="number" name="servings" id="servings" placeholder="Number of Servings">
+                    <label for="servings">Number of Servings</label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<footer th:replace="partials/scripts::scripts"></footer>
+</body>
+</html>
