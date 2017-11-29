@@ -114,27 +114,27 @@ public class Goal {
         this.carbGoal = carbGoal;
     }
 
-    public double getProteinCaloriesGoal() {
-        return Math.ceil(calorieGoal * (proteinGoal / 100.0));
+    public int getProteinCaloriesGoal() {
+        return (int) Math.ceil(calorieGoal * (proteinGoal / 100.0));
     }
 
-    public double getProteinGramsGoal() {
-        return Math.ceil(getProteinCaloriesGoal() / PROTEIN_CALORIES_PER_GRAM);
+    public int getProteinGramsGoal() {
+        return (int) Math.ceil(getProteinCaloriesGoal() / PROTEIN_CALORIES_PER_GRAM);
     }
 
-    public double getFatCaloriesGoal() {
-        return Math.ceil(calorieGoal * (fatGoal / 100.0));
+    public int getFatCaloriesGoal() {
+        return (int) Math.ceil(calorieGoal * (fatGoal / 100.0));
     }
 
-    public double getFatGramsGoal() {
-        return Math.ceil(getFatCaloriesGoal() / FAT_CALORIES_PER_GRAM);
+    public int getFatGramsGoal() {
+        return (int) Math.ceil(getFatCaloriesGoal() / FAT_CALORIES_PER_GRAM);
     }
 
-    public double getCarbCaloriesGoal() {
-        return Math.ceil(calorieGoal * (carbGoal / 100.0));
+    public int getCarbCaloriesGoal() {
+        return (int) Math.ceil(calorieGoal * (carbGoal / 100.0));
     }
 
-    public double getCarbGramsGoal() {
-        return Math.ceil(getCarbCaloriesGoal() / CARBOHYDRATE_CALORIES_PER_GRAM);
+    public int getCarbGramsGoal() {
+        return (int) Math.ceil(getCarbCaloriesGoal() / CARBOHYDRATE_CALORIES_PER_GRAM);
     }
 }

@@ -37,10 +37,14 @@
                 <input  type="password" id="confirmPwd" name="confirmPwd" required="required" />
                 <label for="confirmPwd">Confirm password</label>
             </div>
+            <div class="row">
             <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                 <i class="material-icons right">send</i>
             </button>
-    </form>
+            </div>
+        </form>
+        <h5>Already have account?</h5>
+        <a th:href="@{/login}">Login here!</a>
 </div>
 </div>
 <div th:replace="partials/scripts::scripts"></div>
