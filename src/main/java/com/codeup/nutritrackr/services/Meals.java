@@ -32,6 +32,12 @@ public class Meals {
     }
 
     public Meal findMealForDayByType(User user, LocalDate mealDate, MealType mealType) {
-        return mealDao.findByUserAndMealDateAndMealType(user, mealDate, mealType);
+        Meal meal = mealDao.findByUserAndMealDateAndMealType(user, mealDate, mealType);
+
+        if(meal == null) {
+            return new Meal(user, mealDate, mealType);
+        }
+
+        return meal;
     }
 }
