@@ -6,8 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
 <nav>
@@ -20,7 +19,7 @@
         <div class="row">
             <h4>Set your goal!</h4>
         </div>
-        <form class="col s12" id="reg-form" th:action="@{/goals/set}" th:object="${goal}" method="post">
+        <form class="col s12" th:action="@{/goals/set}" th:object="${goal}" method="post">
             <div class="row">
                 <div class="input-field col s12">
                     <div class="col s4">
@@ -32,8 +31,8 @@
                     <div class="col s4">
                         <input type="number" th:field="*{calorieGoal}" id="calorieGoal" placeholder="0"/>
                     </div>
-                        <div class="cols2">
-                        <button type="button" class="btn inc-btn" id="calories-inc-btn">&plus;</button>
+                        <div class="col s2">
+                        <button type="button" class="btn inc-btn percent" id="calIncrementBtn">&plus;</button>
                     </div>
                     <div class="input-field col s12">
                         <div class="col s4">
@@ -87,7 +86,6 @@
                 <i class="material-icons right">send</i>
             </button>
         </form>
-
     </div>
     <div th:replace="partials/scripts::scripts"></div>
     <script th:src="@{/js/main.js}"></script>

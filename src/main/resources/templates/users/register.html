@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/header :: head('register')">
-    <meta charset="UTF-8" />
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 </head>
 <body>
@@ -21,7 +14,7 @@
         <div class="row">
 <h4>Register for an account!</h4>
         </div>
-        <form class="col s12" id="reg-form" th:action="@{/register}" method="POST" th:object="${user}">
+        <form class="col s12" th:action="@{/register}" method="POST" th:object="${user}">
             <div class="row">
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">account_circle</i>
@@ -35,8 +28,8 @@
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">email</i>
-                <input id="email_prefix" type="text" th:field="*{email}" required="required" />
-                <label for="email_prefix">Email</label>
+                <input type="text" th:field="*{email}" required="required" />
+                <label >Email</label>
             </div>
             </div>
             <div class="input-field col s12 m6">
