@@ -3,17 +3,13 @@
 <head th:replace="partials/header :: head('log in')">
 </head>
 <body>
-<nav>
-    <div class="nav-wrapper">
-        <a href="" class="brand-logo right">Login</a>
-    </div>
-</nav>
+<nav th:replace="partials/navbar::navbar"></nav>
 <div class="container">
     <div class="row">
         <div class="row">
-        <h3>Welcome to Nutritrackr</h3>
+        <h1>Welcome to Nutritrackr</h1>
         </div>
-        <h4>Please Log in</h4>
+        <h3>Please Log In</h3>
         <form class="col s12" th:action="@{/login}" method="post">
             <div class="row">
                 <div class="input-field col s12">

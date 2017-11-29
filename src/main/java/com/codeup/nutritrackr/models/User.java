@@ -25,6 +25,9 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Goal> goals;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Meal> meals;
+
     public long getId() {
         return id;
     }

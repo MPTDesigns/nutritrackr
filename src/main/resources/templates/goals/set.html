@@ -1,87 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="partials/header :: head('set')">
-    <meta charset="UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
-<nav>
-    <div class="nav-wrapper">
-        <a href=" " class="brand-logo right"></a>
-    </div>
-</nav>
+<nav th:replace="partials/navbar::navbar"></nav>
 <div class="container">
     <div class="row">
         <div class="row">
-            <h4>Set your goal!</h4>
+            <h1>Set Your Goals</h1>
         </div>
         <form class="col s12" th:action="@{/goals/set}" th:object="${goal}" method="post">
             <div class="row">
-                <div class="input-field col s12">
-                    <div class="col s4">
-                        <label for="calorieGoal">Calories:</label>
-                    </div>
-                    <div class="col s2">
-                        <button type="button" class="btn dec-btn" id="calDecrementBtn">&minus;</button>
-                    </div>
-                    <div class="col s4">
-                        <input type="number" th:field="*{calorieGoal}" id="calorieGoal" placeholder="0"/>
-                    </div>
-                        <div class="col s2">
-                        <button type="button" class="btn inc-btn percent" id="calIncrementBtn">&plus;</button>
-                    </div>
-                    <div class="input-field col s12">
-                        <div class="col s4">
-                            <label for="proteinGoal">Protein(%):</label>
-                        </div>
-                        <div class="col s2">
-                            <button type="button" class="btn dec-btn" id="proDecrementBtn">&minus;</button>
-                        </div>
-                        <div class="col s4">
-                            <input type='number' th:field="*{proteinGoal}" name='proteinGoal' id='proteinGoal' value="0"
-                                   data-max="100" placeholder="%"/>
-                        </div>
-                        <div class="col s2">
-                            <button type="button" class="btn inc-btn percent" id="proIncrementBtn">&plus;</button>
-                        </div>
-                    </div>
-                    <div class="input-field col s12">
-                        <div class="col s4">
-                            <label for="fatGoal">Fat(%):</label>
-                        </div>
-                        <div class="col s2">
-                            <button type="button" class="btn dec-btn" id="fatDecrementBtn">&minus;</button>
-                        </div>
-                        <div class="col s4">
-                            <input type='number' th:field="*{fatGoal}" name='fatGoal' id='fatGoal' value="0"
-                                   data-max="100" placeholder="%"/>
-                        </div>
-                        <div class="col s2">
-                            <button type="button" class="btn inc-btn percent" id="fatIncrementBtn">&plus;</button>
-                        </div>
-                    </div>
-                    <div class="input-field col s12">
-                        <div class="col s4">
-                            <label for="carbGoal">Carbohydrate(%):</label>
-                        </div>
-                        <div class="col s2">
-                            <button type="button" class="btn dec-btn" id="carbDecrementBtn">&minus;</button>
-                        </div>
-                        <div class="col s4">
-                            <input type='number' th:field="*{carbGoal}" name='carbGoal' id='carbGoal' value="0"
-                                   data-max="100" placeholder="%"/>
-                        </div>
-                        <div class="col s2">
-                            <button type="button" class="btn inc-btn percent" id="carbIncrementBtn">&plus;</button>
-                        </div>
-                    </div>
+                <div class="input-field col m6">
+                    <input type="number" th:field="*{calorieGoal}" />
+                    <label>Calories:</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="number" th:field="*{proteinGoal}" name='proteinGoal'  value="0" data-max="100"/>
+                    <label>Protein(%):</label>
                 </div>
             </div>
-            <!--<input type="submit" value="Update Goals"/>-->
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="number" th:field="*{fatGoal}" name='fatGoal'  value="0" data-max="100"/>
+                    <label>Fat(%):</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="number" th:field="*{carbGoal}" name='carbGoal' value="0" data-max="100"/>
+                    <label>Carbohydrate(%):</label>
+                </div>
+            </div>
             <button class="btn waves-effect waves-light" type="Update Goals" name="action">Update Goals
                 <i class="material-icons right">send</i>
             </button>
