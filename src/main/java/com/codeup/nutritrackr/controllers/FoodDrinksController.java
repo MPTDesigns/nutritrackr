@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 @Controller
 @SessionAttributes({"diaryDate", "meal"})
@@ -74,4 +75,15 @@ public class FoodDrinksController {
         meals.save(meal);
         return "redirect:/diary";
     }
+
+    @GetMapping("foods/{foodId}/delete")
+    public String deleteEntry(@RequestParam("id") int mealId, @PathVariable int foodId) {
+        FoodDrink entryToRemove = foodDrinks.findOne(foodId);
+        Meal meal = meals.findOne(mealId);
+        meal.getFoodItems().remove(entryToRemove);
+        meals.save(meal);
+        return "redirect:/diary";
+    }
+
+
 }
