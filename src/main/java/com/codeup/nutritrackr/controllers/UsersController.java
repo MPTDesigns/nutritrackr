@@ -32,7 +32,7 @@ public class UsersController {
 
     @PostMapping("/register")
     public String registerUser(@ModelAttribute User user, @RequestParam("confirmPwd") String confirmPassword) {
-        if(user.getPassword() == confirmPassword) {
+        if(user.getPassword().equals(confirmPassword)) {
             String hash = passwordEncoder.encode(user.getPassword());
             user.setPassword(hash);
             users.save(user);
