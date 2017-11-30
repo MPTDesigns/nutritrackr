@@ -3,6 +3,7 @@ package com.codeup.nutritrackr.controllers;
 import com.codeup.nutritrackr.models.User;
 import com.codeup.nutritrackr.services.Users;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +16,12 @@ import java.time.LocalDate;
 @SessionAttributes("diaryDate")
 public class UsersController {
     private Users users;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UsersController(Users users) {
+    public UsersController(Users users, PasswordEncoder passwordEncoder) {
         this.users = users;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/register")
@@ -29,27 +32,13 @@ public class UsersController {
 
     @PostMapping("/register")
     public String registerUser(@ModelAttribute User user, @RequestParam("confirmPwd") String confirmPassword) {
-        if(users.findByEmail(user.getEmail()) == null && user.getPassword().equals(confirmPassword)) {
+        if(user.getPassword().equals(confirmPassword)) {
+            String hash = passwordEncoder.encode(user.getPassword());
+            user.setPassword(hash);
             users.save(user);
             return "redirect:/login";
-        } else {
-            return "users/register";
         }
-    }
 
-    @GetMapping("/login")
-    public String showLoginPage() {
-        return "users/login";
-    }
-
-//    @PostMapping("/login")
-//    public ModelAndView loginUser(RedirectAttributes redirectAttributes) {
-//        redirectAttributes.addFlashAttribute("diaryDate", LocalDate.now().plusDays(5));
-//        return new ModelAndView("redirect:/diary");
-//    }
-    @PostMapping("/login")
-    public String logUserIn(Model model) {
-        model.addAttribute("diaryDate", LocalDate.now().minusDays(2));
-        return "redirect:/diary";
+        return "users/register";
     }
 }
