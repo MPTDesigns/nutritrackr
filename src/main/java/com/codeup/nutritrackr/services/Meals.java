@@ -1,5 +1,6 @@
 package com.codeup.nutritrackr.services;
 
+import com.codeup.nutritrackr.models.FoodDrink;
 import com.codeup.nutritrackr.models.Meal;
 import com.codeup.nutritrackr.models.MealType;
 import com.codeup.nutritrackr.models.User;
@@ -40,4 +41,9 @@ public class Meals {
 
         return meal;
     }
+
+    public void delete(FoodDrink entryToDelete) {
+        mealDao.delete(entryToDelete.getId());
+    }
+
 }
