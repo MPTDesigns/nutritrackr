@@ -11,7 +11,7 @@
     <div th:fragment="navbar" th:remove="tag">
         <ul id="goals-dropdown" class="dropdown-content">
             <li><a th:href="@{/goals/view}">Current Goals</a></li>
-            <li><a th:href="@{/goals/create}">Update Goals</a></li>
+            <li><a th:href="@{/goals/set}">Update Goals</a></li>
         </ul>
         <ul id="progress-dropdown" class="dropdown-content">
             <li><a th:href="@{/progress/daily}">Daily Progress</a></li>
@@ -34,7 +34,7 @@
                     <li><a class="subheader" href="#">Goals</a></li>
                     <ul>
                         <li><a th:href="@{/goals/view}">Current Goals</a></li>
-                        <li><a th:href="@{/goals/create}">Update Goals</a></li>
+                        <li><a th:href="@{/goals/set}">Update Goals</a></li>
                     </ul>
 
                     <li><div class="divider"></div></li>
