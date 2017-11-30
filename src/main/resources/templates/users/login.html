@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/header :: head('log in')">
 </head>
 <body>
-<nav></nav>
+<nav th:replace="partials/navbar::navbar"></nav>
 <div class="container">
     <div class="row">
-        <h1>Welcome to Nutritraker</h1>
-        <h3>Please Log in</h3>
-
-        <form th:action="@{/login}" method="post">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="text" class="form-control"/>
+        <div class="row">
+        <h1>Welcome to Nutritrackr</h1>
+        </div>
+        <h3>Please Log In</h3>
+        <form class="col s12" th:action="@{/login}" method="post">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" name="email" type="text" class="form-control"/>
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">https</i>
+                    <input id="password" name="password" type="password" class="form-control"/>
+                    <label for="password">Password</label>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Log in
+                    <i class="material-icons right">send</i>
+                </button>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" name="password" type="password" class="form-control"/>
-            </div>
-            <input type="submit" value="Log In" class="btn btn-primary"/>
-        </form>
-        <h3>Don't have an account?</h3>
-        <a th:href="@{/register}">Register Here</a>
+         </form>
+        <h5>Don't have an account?</h5>
+        <a th:href="@{/register}"> Register here!</a>
     </div>
 </div>
+<div th:replace="partials/scripts::scripts"></div>
 </body>
 </html>
