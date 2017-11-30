@@ -66,6 +66,22 @@ public class DiaryController {
        return "users/diary";
     }
 
+    @GetMapping("/diary/prev")
+    public String minusDate(HttpSession session){
+        LocalDate diaryDate = (LocalDate) session.getAttribute("diaryDate");
+        session.setAttribute("diaryDate", diaryDate.minusDays(1));
+        return "redirect:/diary";
+
+    }
+
+    @GetMapping("/diary/next")
+    public String plusDate(HttpSession session){
+        LocalDate diaryDate = (LocalDate) session.getAttribute("diaryDate");
+        session.setAttribute("diaryDate", diaryDate.plusDays(1));
+        return "redirect:/diary";
+
+    }
+
 
 
 }
