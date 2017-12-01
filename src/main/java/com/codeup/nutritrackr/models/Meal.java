@@ -47,6 +47,7 @@ public class Meal {
         this.foodItems = new ArrayList<>();
     }
 
+
     public Meal() { }
 
     public void setId(long id) {
