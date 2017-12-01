@@ -1,2 +1,13 @@
 
+#index-banner {
+background-image: url('/img/pizza.jpg');
+background-size: cover;
+}
 
+.material-icons {
+    font-size: 1em;
+}
+
+.icon-block {
+    font-size: larger;
+}

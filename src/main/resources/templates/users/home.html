@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/header :: head('Test')"></head>
+<head th:replace="partials/header :: head('Home')"></head>
 <body>
 <nav th:replace="partials/navbar2 :: navbar2"></nav>
 
-<div class="container">
-    <h1 class="center">Track your nutritional intake with Nutritrackr</h1>
+<div id="index-banner" class="food-banner-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br/><br/>
+            <h1 class="header center white-text text-lighten-2">Nutritrackr</h1>
+            <div class="row center">
+                <h5 class="header col s12 white-text text-lighten-2">We are here to help you live a better life</h5>
+            </div>
+            <div class="row center">
+                <a th:href="@{/login}" id="get-started" class="btn-large waves-effect waves-light teal lighten-1">Sign Up</a>
+            </div>
+            <br/><br/>
+        </div>
+    </div>
+    <!--<div class="food-banner"><img class="responsive-img" src="https://source.unsplash.com/3000x1000/?food"/></div>-->
 </div>
+
+
+<div class="container">
+    <div class="section">
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h1 class="center black-text"><i class="material-icons">track_changes</i></h1>
+                    <h4 class="center">Set Goals</h4>
+                    <p class="center light">Set a specific amount of calories you would like to have each day</p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h1 class="center black-text"><i class="material-icons">library_books</i></h1>
+                    <h4 class="center">Diary</h4>
+                    <p class="center light">Keep a log of the different foods you eat throughout the day</p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h1 class="center black-text"><i class="material-icons">trending_up</i></h1>
+                    <h4 class="center">Progress</h4>
+                    <p class="center light">Track your progress throughout the day</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <div th:replace="partials/scripts :: scripts"></div>
 </body>
