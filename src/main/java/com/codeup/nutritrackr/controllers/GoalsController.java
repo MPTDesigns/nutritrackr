@@ -41,6 +41,8 @@ public class GoalsController {
 
         if(mostRecentGoals == null) {
             mostRecentGoals = new Goal();
+        } else {
+            mostRecentGoals = new Goal(mostRecentGoals);
         }
 
         model.addAttribute("goal", mostRecentGoals);
