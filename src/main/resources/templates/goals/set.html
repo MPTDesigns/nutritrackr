@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="partials/header :: head('set')">
+</head>
+<body>
+<nav th:replace="partials/navbar::navbar"></nav>
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <h1>Set Your Goals</h1>
+        </div>
+        <form class="col s12" th:action="@{/goals/set}" th:object="${goal}" method="post">
+            <div class="row">
+                <div class="input-field col m6">
+                    <input type="number" th:field="*{calorieGoal}" />
+                    <label for="calorieGoal">Calories:</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="number" th:field="*{proteinGoal}" name='proteinGoal'  value="0" data-max="100"/>
+                    <label for="proteinGoal">Protein(%):</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="number" th:field="*{fatGoal}" name='fatGoal'  value="0" data-max="100"/>
+                    <label for="fatGoal">Fat(%):</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="number" th:field="*{carbGoal}" name='carbGoal' value="0" data-max="100"/>
+                    <label for="carbGoal">Carbohydrate(%):</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="Update Goals" name="action">Update Goals
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+    <div th:replace="partials/scripts::scripts"></div>
+    <script th:src="@{/js/main.js}"></script>
+</div>
+</body>
+</html>

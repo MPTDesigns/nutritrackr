@@ -4,6 +4,7 @@ import com.codeup.nutritrackr.models.Goal;
 import com.codeup.nutritrackr.models.User;
 import com.codeup.nutritrackr.services.Goals;
 import com.codeup.nutritrackr.services.Users;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,33 +17,33 @@ import java.time.LocalDateTime;
 @Controller
 public class GoalsController {
     private final Goals goals;
-    private final Users users;
 
-    public GoalsController(Goals goals, Users users) {
+    public GoalsController(Goals goals) {
         this.goals = goals;
-        this.users = users;
     }
 
     @GetMapping("/goals")
-    @ResponseBody
-    public String getUserGoals() {
-        User user = users.findOne(1);
+    public String getUserGoals(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Goal userGoals = goals.findMostRecentUserGoals(user);
-        if(userGoals != null) {
-            return String.format("Calories: %s", userGoals.getCalorieGoal());
+        if (userGoals == null) {
+            return "redirect:/goals/set";
         }
-        return "User has no goals";
+        model.addAttribute("userGoals", userGoals);
+
+        return "goals/view";
     }
 
-    @GetMapping("/goals/create")
+    @GetMapping("/goals/set")
     public String createUserGoals(Model model) {
-        model.addAttribute("goal", goals.findMostRecentUserGoals(users.findOne(1)));
-        return "goals/create";
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("goal", goals.findMostRecentUserGoals(user));
+        return "goals/set";
     }
 
-    @PostMapping("/goals/create")
+    @PostMapping("/goals/set")
     public String saveNewGoal(@ModelAttribute Goal goal) {
-        User user = users.findOne(1);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         goal.setUser(user);
         goal.setStartDate(LocalDateTime.now());
         goals.save(goal);

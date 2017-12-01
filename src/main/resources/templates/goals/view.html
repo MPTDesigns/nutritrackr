@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="partials/header :: head('View Goals')">
+</head>
+<body>
+<nav th:replace="partials/navbar::navbar"></nav>
+<div class="container">
+    <div class="row">
+    <h1>View Your Goals</h1>
+    </div>
+    <table class="bordered">
+        <thead>
+            <tr>
+                <th>Calories</th>
+                <th th:text="${userGoals.calorieGoal}"></th>
+                <th>Calories from</th>
+                <th>Grams</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Protein</td>
+                <td><span th:text="${userGoals.proteinGoal}"></span>%</td>
+                <td th:text="${userGoals.proteinCaloriesGoal}"></td>
+                <td th:text="${userGoals.proteinGramsGoal}"></td>
+            </tr>
+            <tr>
+                <td>Fat</td>
+                <td><span th:text="${userGoals.fatGoal}"></span>%</td>
+                <td th:text="${userGoals.fatCaloriesGoal}"></td>
+                <td th:text="${userGoals.fatGramsGoal}"></td>
+            </tr>
+            <tr>
+                <td>Carbohydrate</td>
+                <td><span th:text="${userGoals.carbGoal}"></span>%</td>
+                <td th:text="${userGoals.carbCaloriesGoal}"></td>
+                <td th:text="${userGoals.carbGramsGoal}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3></h3>
+</div>
+<div th:replace="partials/scripts :: scripts"></div>
+</body>
+</html>

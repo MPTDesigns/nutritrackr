@@ -8,9 +8,9 @@
 <div class="container">
     <div class="row">
         <div class="align-wrapper">
-            <a href="#" class="col s2 left-align teal-text text-lighten-1"><i class="medium material-icons">navigate_before</i></a>
+            <a th:href="@{/diary/prev}" class="col s2 left-align teal-text text-lighten-1"><i class="medium material-icons">navigate_before</i></a>
             <h4 class="col s8 center-align"><a href="#" type="text" class="datepicker teal-text text-lighten-1">Today</a></h4>
-            <a href="#" class="col s2 right-align teal-text text-lighten-1"><i class="medium material-icons">navigate_next</i></a>
+            <a th:href="@{/diary/next}" class="col s2 right-align teal-text text-lighten-1"><i class="medium material-icons">navigate_next</i></a>
         </div>
     </div>
     <div class="row">
@@ -40,7 +40,7 @@
                 <td th:text="${breakfastItem.protein}"></td>
                 <td th:text="${breakfastItem.fat}"></td>
                 <td th:text="${breakfastItem.carbohydrates}"></td>
-                <td><a href="#" class="btn-floating"><i class="material-icons">remove</i></a></td>
+                <td><a th:href="@{/foods/{foodId}/delete(foodId=${breakfastItem.id},id=${breakfast.id})}" class="btn-floating"><i class="material-icons">remove</i></a></td>
             </tr>
             <tr>
                 <td>Total:</td>
@@ -79,7 +79,7 @@
                     <td th:text="${lunchItem.protein}"></td>
                     <td th:text="${lunchItem.fat}"></td>
                     <td th:text="${lunchItem.carbohydrates}"></td>
-                    <td><a href="#" class="btn-floating"><i class="material-icons">remove</i></a></td>
+                    <td><a th:href="@{/foods/{foodId}/delete(foodId=${lunchItem.id},id=${lunch.id})}" class="btn-floating"><i class="material-icons">remove</i></a></td>
                 </tr>
                 <tr>
                     <td>Total:</td>
@@ -118,7 +118,7 @@
                 <td th:text="${dinnerItem.protein}"></td>
                 <td th:text="${dinnerItem.fat}"></td>
                 <td th:text="${dinnerItem.carbohydrates}"></td>
-                <td><a href="#" class="btn-floating"><i class="material-icons">remove</i></a></td>
+                <td><a th:href="@{/foods/{foodId}/delete(foodId=${dinnerItem.id},id=${dinner.id})}" class="btn-floating"><i class="material-icons">remove</i></a></td>
             </tr>
             <tr>
                 <td>Total:</td>
@@ -157,7 +157,7 @@
                 <td th:text="${snacksItem.protein}"></td>
                 <td th:text="${snacksItem.fat}"></td>
                 <td th:text="${snacksItem.carbohydrates}"></td>
-                <td><a href="#" class="btn-floating"><i class="material-icons">remove</i></a></td>
+                <td><a th:href="@{/foods/{foodId}/delete(foodId=${snacksItem.id},id=${snacks.id})}" class="btn-floating"><i class="material-icons">remove</i></a></td>
             </tr>
             <tr>
                 <td>Total:</td>
@@ -176,14 +176,6 @@
                 <!--<span>Lunch</span>-->
                 <!--<span class="second-button right"><input type="submit" name="submit" value="ADD"/></span>-->
             <!--</th>-->
-
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td>Calories</td>-->
-            <!--<td>Protein</td>-->
-            <!--<td>Fat</td>-->
-            <!--<td>Carbohydrates</td>-->
-        <!--</tr>-->
 
     <!--</table>-->
 

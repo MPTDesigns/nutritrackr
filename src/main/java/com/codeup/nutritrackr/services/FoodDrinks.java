@@ -30,4 +30,9 @@ public class FoodDrinks {
     public List<FoodDrink> searchFoodDrinks(String description) {
         return (List<FoodDrink>) foodDrinksDao.findAllByDescriptionContainingIgnoreCase(description);
     }
+
+    public FoodDrink delete(FoodDrink foodDrink) {
+        foodDrinksDao.delete(foodDrink);
+        return foodDrink;
+    }
 }

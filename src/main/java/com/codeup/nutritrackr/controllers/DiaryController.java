@@ -6,38 +6,41 @@ import com.codeup.nutritrackr.models.MealType;
 import com.codeup.nutritrackr.models.User;
 import com.codeup.nutritrackr.services.Meals;
 import com.codeup.nutritrackr.services.Users;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 @Controller
-@SessionAttributes({"diaryDate"})
+//@SessionAttributes({"diaryDate"})
 public class DiaryController {
 
-    private final Users users;
     private final Meals meals;
 
-    public DiaryController(Users users, Meals meals) {
-        this.users = users;
+    public DiaryController(Meals meals) {
         this.meals = meals;
     }
 
     @GetMapping("/diary")
-    public String showDiaryPage(@ModelAttribute("diaryDate") LocalDate diaryDate, Model model) {
+    public String showDiaryPage(/*@ModelAttribute("diaryDate") LocalDate diaryDate*/HttpSession session, Model model) {
 //        Meal mealToSave = new Meal(users.findOne(1));
 //        mealToSave.setMealType(MealType.BREAKFAST);
 //        mealToSave.setMealDate(LocalDate.now());
 //        mealToSave.setFoodItems(new ArrayList<>());
 //        mealToSave.getFoodItems().add(foodDrinks.findOne(3));
 //        meals.save(mealToSave);
-        User user = users.findOne(1);
-
+        LocalDate diaryDate = (LocalDate) session.getAttribute("diaryDate");
         if(diaryDate == null) {
             diaryDate = LocalDate.now();
+            session.setAttribute("diaryDate", diaryDate);
         }
+
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         Meal breakfast = meals.findMealForDayByType(user, diaryDate, MealType.BREAKFAST);
         Meal lunch = meals.findMealForDayByType(user, diaryDate, MealType.LUNCH);
@@ -61,6 +64,22 @@ public class DiaryController {
     @GetMapping("/diary/create")
     public String createDiaryPost(){
        return "users/diary";
+    }
+
+    @GetMapping("/diary/prev")
+    public String minusDate(HttpSession session){
+        LocalDate diaryDate = (LocalDate) session.getAttribute("diaryDate");
+        session.setAttribute("diaryDate", diaryDate.minusDays(1));
+        return "redirect:/diary";
+
+    }
+
+    @GetMapping("/diary/next")
+    public String plusDate(HttpSession session){
+        LocalDate diaryDate = (LocalDate) session.getAttribute("diaryDate");
+        session.setAttribute("diaryDate", diaryDate.plusDays(1));
+        return "redirect:/diary";
+
     }
 
 

@@ -8,6 +8,7 @@ import com.codeup.nutritrackr.services.FoodDrinks;
 import com.codeup.nutritrackr.services.Meals;
 import com.codeup.nutritrackr.services.Users;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 @Controller
 @SessionAttributes({"diaryDate", "meal"})
@@ -50,7 +52,7 @@ public class FoodDrinksController {
                                       Model model
     ) {
 
-        User user = users.findOne(1);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Meal meal = meals.findMealForDayByType(user, diaryDate, mealType);
         model.addAttribute("meal", meal);
         return "redirect:/foods/search";
@@ -68,10 +70,21 @@ public class FoodDrinksController {
     }
 
     @GetMapping("/foods/{foodDrinkId}/addToMeal")
-    public String addFoodToMeal(@PathVariable long foodDrinkId, @ModelAttribute("meal") Meal meal, SessionStatus status) {
+    public String addFoodToMeal(@PathVariable long foodDrinkId, @ModelAttribute("meal") Meal meal) {
         FoodDrink foodDrink = foodDrinks.findOne(foodDrinkId);
         meal.getFoodItems().add(foodDrink);
         meals.save(meal);
         return "redirect:/diary";
     }
+
+    @GetMapping("foods/{foodId}/delete")
+    public String deleteEntry(@RequestParam("id") int mealId, @PathVariable int foodId) {
+        FoodDrink entryToRemove = foodDrinks.findOne(foodId);
+        Meal meal = meals.findOne(mealId);
+        meal.getFoodItems().remove(entryToRemove);
+        meals.save(meal);
+        return "redirect:/diary";
+    }
+
+
 }

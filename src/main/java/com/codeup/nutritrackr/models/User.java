@@ -1,5 +1,7 @@
 package com.codeup.nutritrackr.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -27,6 +29,19 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Meal> meals;
+
+    @Autowired
+    public User() { }
+
+    public User(User user) {
+        this.id = user.id;
+        this.email = user.email;
+        this.password = user.password;
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+        this.goals = user.goals;
+        this.meals = user.meals;
+    }
 
     public long getId() {
         return id;
