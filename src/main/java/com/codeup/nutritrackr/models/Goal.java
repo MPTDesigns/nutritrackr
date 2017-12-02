@@ -58,6 +58,16 @@ public class Goal {
         this.carbGoal = carbGoal;
     }
 
+    public Goal(Goal goal) {
+        this.id = goal.id;
+        this.user = goal.user;
+        this.startDate = goal.startDate;
+        this.calorieGoal = goal.calorieGoal;
+        this.fatGoal = goal.fatGoal;
+        this.carbGoal = goal.carbGoal;
+
+    }
+
     public long getId() {
         return id;
     }

@@ -37,7 +37,15 @@ public class GoalsController {
     @GetMapping("/goals/set")
     public String createUserGoals(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("goal", goals.findMostRecentUserGoals(user));
+        Goal mostRecentGoals = goals.findMostRecentUserGoals(user);
+
+        if(mostRecentGoals == null) {
+            mostRecentGoals = new Goal();
+        } else {
+            mostRecentGoals = new Goal(mostRecentGoals);
+        }
+
+        model.addAttribute("goal", mostRecentGoals);
         return "goals/set";
     }
 
