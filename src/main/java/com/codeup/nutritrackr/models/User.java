@@ -13,20 +13,20 @@ public class User {
     @GeneratedValue
     private long id;
 
-    @NotBlank(message="Email is required.")
     @Column(nullable = false, length = 100, unique = true)
+    @NotBlank(message="Email is required.")
     private String email;
 
-    @NotBlank(message = "Password is required")
     @Column(nullable = false, length = 100)
+    @NotBlank(message = "Password is required")
     private String password;
 
-    @NotBlank(message = "First name is required")
     @Column(nullable = false, length = 50)
+    @NotBlank(message = "First name is required")
     private String firstName;
 
-    @NotBlank(message = "Last name is required")
     @Column(nullable = false, length = 50)
+    @NotBlank(message = "Last name is required")
     private String lastName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
