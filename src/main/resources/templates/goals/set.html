@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="partials/header :: head('set')">
+<head th:replace="partials/header :: head('Set Your Goals')">
 </head>
 <body>
 <nav th:replace="partials/navbar::navbar"></nav>
@@ -16,17 +16,17 @@
                     <label for="calorieGoal">Calories:</label>
                 </div>
                 <div class="input-field col s6">
-                    <input type="number" th:field="*{proteinGoal}" name='proteinGoal'  value="0" data-max="100"/>
+                    <input type="number" th:field="*{proteinGoal}" />
                     <label for="proteinGoal">Protein(%):</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input type="number" th:field="*{fatGoal}" name='fatGoal'  value="0" data-max="100"/>
+                    <input type="number" th:field="*{fatGoal}" />
                     <label for="fatGoal">Fat(%):</label>
                 </div>
                 <div class="input-field col s6">
-                    <input type="number" th:field="*{carbGoal}" name='carbGoal' value="0" data-max="100"/>
+                    <input type="number" th:field="*{carbGoal}" />
                     <label for="carbGoal">Carbohydrate(%):</label>
                 </div>
             </div>
