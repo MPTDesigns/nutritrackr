@@ -20,7 +20,7 @@
         </ul>
         <nav>
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Nutritrackr</a>
+                <a href="/" class="brand-logo">Nutritrackr</a>
                 <a href="#" data-activates="mobile-side-nav" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li sec:authorize="isAuthenticated()"><a th:href="@{/diary}">Diary</a></li>
@@ -47,7 +47,7 @@
 
                     <li sec:authorize="isAuthenticated()"><a class="subheader" href="#">Goals</a></li>
                     <ul  sec:authorize="isAuthenticated()">
-                        <li><a th:href="@{/goals/view}">Current Goals</a></li>
+                        <li><a th:href="@{/goals}">Current Goals</a></li>
                         <li><a th:href="@{/goals/set}">Update Goals</a></li>
                     </ul>
 

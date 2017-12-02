@@ -2,8 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/header :: head('Home')"></head>
 <body>
-<nav th:replace="partials/navbar2 :: navbar2"></nav>
-
+<nav th:replace="partials/navbar :: navbar"></nav>
 <div id="index-banner" class="food-banner-container">
     <div class="section no-pad-bot">
         <div class="container">
@@ -18,10 +17,7 @@
             <br/><br/>
         </div>
     </div>
-    <!--<div class="food-banner"><img class="responsive-img" src="https://source.unsplash.com/3000x1000/?food"/></div>-->
 </div>
-
-
 <div class="container">
     <div class="section">
         <!--   Icon Section   -->
@@ -50,9 +46,6 @@
         </div>
     </div>
 </div>
-
-
-
 <div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
