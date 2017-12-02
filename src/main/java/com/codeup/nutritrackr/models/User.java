@@ -1,5 +1,6 @@
 package com.codeup.nutritrackr.models;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
@@ -12,15 +13,19 @@ public class User {
     @GeneratedValue
     private long id;
 
+    @NotBlank(message="Email is required.")
     @Column(nullable = false, length = 100, unique = true)
     private String email;
 
+    @NotBlank(message = "Password is required")
     @Column(nullable = false, length = 100)
     private String password;
 
+    @NotBlank(message = "First name is required")
     @Column(nullable = false, length = 50)
     private String firstName;
 
+    @NotBlank(message = "Last name is required")
     @Column(nullable = false, length = 50)
     private String lastName;
 
