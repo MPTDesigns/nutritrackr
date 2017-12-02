@@ -16,22 +16,37 @@
                 <input type="text" th:field="*{firstName}" required="required" />
                 <label for="firstName">First Name</label>
             </div>
+                <div th:if="${#fields.hasErrors('firstName')}">
+                    <span style="color:red" th:errors="*{firstName}"/>
+                </div>
+
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">account_circle</i>
                 <input type="text" th:field="*{lastName}" class="validate" />
                 <label for="lastName">Last Name</label>
             </div>
+                <div th:if="${#fields.hasErrors('lastName')}">
+                    <span style="color:red" th:errors="*{lastName}"/>
+                </div>
+
             <div class="input-field col s12">
                 <i class="material-icons prefix">email</i>
                 <input type="text" th:field="*{email}" required="required" />
                 <label for="email" >Email</label>
             </div>
-            </div>
+                <div th:if="${#fields.hasErrors('email')}">
+                    <span style="color:red" th:errors="*{email}"/>
+                </div>
+
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">https</i>
                 <input type="password" th:field="*{password}" required="required" />
                 <label for="password">Password</label>
             </div>
+                <div th:if="${#fields.hasErrors('password')}">
+                    <span style="color:red" th:errors="*{password}"/>
+                </div>
+
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">https</i>
                 <input  type="password" id="confirmPwd" name="confirmPwd" required="required" />
