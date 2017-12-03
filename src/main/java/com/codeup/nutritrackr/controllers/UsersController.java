@@ -51,20 +51,6 @@ public class UsersController {
             users.save(user);
             return "redirect:/login";
         }
-//        if (user.getEmail().length() < 6 || user.getEmail().length() > 32) {
-//            validation.rejectValue("username", "Size.userForm.username");
-//        }
-//        if (users.findByEmail(user.getEmail()) != null) {
-//            validation.rejectValue("username", "Duplicate.user.email");
-//        }
-//
-//        if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
-//            validation.rejectValue("password", "Size.userForm.password");
-//        }
-//
-//        if (!user.getConfirmPassword().equals(user.getPassword())) {
-//            validation.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
-//        }
 
         return "users/register";
      }
