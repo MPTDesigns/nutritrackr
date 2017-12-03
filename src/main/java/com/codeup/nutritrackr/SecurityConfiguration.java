@@ -27,22 +27,27 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
             .userDetailsService(userDetailsLoader)
-            .passwordEncoder(passwordEncoder());
+            .passwordEncoder(passwordEncoder())
+        ;
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    public void configure(HttpSecurity http) throws Exception {
         http
-            .authorizeRequests()
-                .antMatchers("/", "/register", "/login*", "/resources/static/**").permitAll()
-                .anyRequest().authenticated()
-            .and()
             .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/diary")
-            .and()
-                .logout()
+                .usernameParameter("email")
+                .permitAll()
+                .and()
+            .logout()
+                .logoutUrl("/logout")
                 .logoutSuccessUrl("/login?logout")
+                .invalidateHttpSession(true)
+                .and()
+            .authorizeRequests()
+                .antMatchers("/", "/css/**", "/js/**", "/img/**", "/login*", "/register").permitAll()
+                .anyRequest().authenticated()
         ;
     }
 }
