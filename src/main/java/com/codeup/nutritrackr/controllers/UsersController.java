@@ -34,18 +34,17 @@ public class UsersController {
 
     @PostMapping("/register")
     public String registerUser(@Valid User user, Errors validation, Model model, @RequestParam("confirmPwd") String confirmPassword) {
-        if (!confirmPassword.equals(user.getPassword())) {
-            validation.rejectValue("password", "user.password", "Your password do not match!");
-
             if (validation.hasErrors()) {
                 model.addAttribute("errors", validation);
                 model.addAttribute("user", user);
                 return "users/register";
             }
+        if (!confirmPassword.equals(user.getPassword())) {
+            validation.rejectValue("password", "user.password", "Your password do not match!");
 
-//            String hash = passwordEncoder.encode(user.getPassword());
-//            user.setPassword(hash);
-//            users.save(user);
+            String hash = passwordEncoder.encode(user.getPassword());
+            user.setPassword(hash);
+            users.save(user);
         }
         if (users.findByEmail(user.getEmail()) == null && user.getPassword().equals(confirmPassword)) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -54,6 +53,7 @@ public class UsersController {
         }
 
         return "users/register";
+     }
     }
-}
+
 
