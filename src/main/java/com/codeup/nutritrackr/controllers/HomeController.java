@@ -7,11 +7,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HomeController {
 
-
-    @GetMapping("/home")
-    @ResponseBody
-    public String homeController(){
-        return "Welcome to Nutritrackr page!";
+    @GetMapping(path = "/")
+    public String getTestPage() {
+        return "users/home";
     }
-
 }
