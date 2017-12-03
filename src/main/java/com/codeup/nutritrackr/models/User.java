@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -47,7 +48,6 @@ public class User {
         this.goals = user.goals;
         this.meals = user.meals;
     }
-
     public long getId() {
         return id;
     }
@@ -95,4 +95,5 @@ public class User {
     public void setGoals(List<Goal> goals) {
         this.goals = goals;
     }
+
 }

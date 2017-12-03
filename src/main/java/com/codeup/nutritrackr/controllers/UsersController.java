@@ -34,23 +34,37 @@ public class UsersController {
 
     @PostMapping("/register")
     public String registerUser(@Valid User user, Errors validation, Model model, @RequestParam("confirmPwd") String confirmPassword) {
-            if (validation.hasErrors()) {
-                model.addAttribute("errors", validation);
-                model.addAttribute("user", user);
-                return "users/register";
-            }
+        if (validation.hasErrors()) {
+            model.addAttribute("errors", validation);
+            model.addAttribute("user", user);
+            return "users/register";
+        }
         if (!confirmPassword.equals(user.getPassword())) {
             validation.rejectValue("password", "user.password", "Your password do not match!");
 
             String hash = passwordEncoder.encode(user.getPassword());
             user.setPassword(hash);
             users.save(user);
-        }
-        if (users.findByEmail(user.getEmail()) == null && user.getPassword().equals(confirmPassword)) {
+
+        } if (users.findByEmail(user.getEmail()) == null && user.getPassword().equals(confirmPassword)) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             users.save(user);
             return "redirect:/login";
         }
+//        if (user.getEmail().length() < 6 || user.getEmail().length() > 32) {
+//            validation.rejectValue("username", "Size.userForm.username");
+//        }
+//        if (users.findByEmail(user.getEmail()) != null) {
+//            validation.rejectValue("username", "Duplicate.user.email");
+//        }
+//
+//        if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
+//            validation.rejectValue("password", "Size.userForm.password");
+//        }
+//
+//        if (!user.getConfirmPassword().equals(user.getPassword())) {
+//            validation.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
+//        }
 
         return "users/register";
      }
