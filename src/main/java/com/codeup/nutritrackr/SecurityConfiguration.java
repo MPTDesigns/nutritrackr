@@ -34,10 +34,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http
-            .authorizeRequests()
-                .antMatchers("/", "/register", "/login*", "/resources/static/**").permitAll()
-                .anyRequest().authenticated()
-            .and()
             .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/diary")
@@ -50,7 +46,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true)
                 .and()
             .authorizeRequests()
-                .antMatchers("/", "/css/**", "/js/**", "/img/**", "/login*", "/logout", "/register").permitAll()
+                .antMatchers("/", "/css/**", "/js/**", "/img/**", "/login*", "/register").permitAll()
                 .anyRequest().authenticated()
         ;
     }
