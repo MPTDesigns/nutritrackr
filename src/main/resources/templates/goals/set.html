@@ -12,21 +12,21 @@
         <form class="col s12" th:action="@{/goals/set}" th:object="${goal}" method="post">
             <div class="row">
                 <div class="input-field col m6">
-                    <input type="number" th:field="*{calorieGoal}" />
+                    <input type="number" th:field="*{calorieGoal}" class="right-align" />
                     <label for="calorieGoal">Calories:</label>
                 </div>
                 <div class="input-field col s6">
-                    <input type="number" th:field="*{proteinGoal}" />
+                    <input type="number" th:field="*{proteinGoal}" class="right-align" />
                     <label for="proteinGoal">Protein(%):</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input type="number" th:field="*{fatGoal}" />
+                    <input type="number" th:field="*{fatGoal}" class="right-align" />
                     <label for="fatGoal">Fat(%):</label>
                 </div>
                 <div class="input-field col s6">
-                    <input type="number" th:field="*{carbGoal}" />
+                    <input type="number" th:field="*{carbGoal}" class="right-align" />
                     <label for="carbGoal">Carbohydrate(%):</label>
                 </div>
             </div>
