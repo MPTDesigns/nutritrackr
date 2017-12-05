@@ -46,7 +46,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true)
                 .and()
             .authorizeRequests()
-                .antMatchers("/", "/css/**", "/js/**", "/img/**", "/login*", "/register").permitAll()
+                .antMatchers("/", "/about-us", "/css/**", "/js/**", "/img/**", "/login*", "/register").permitAll()
                 .anyRequest().authenticated()
         ;
     }
