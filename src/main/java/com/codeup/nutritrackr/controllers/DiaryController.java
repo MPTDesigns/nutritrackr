@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 @Controller
@@ -40,6 +41,8 @@ public class DiaryController {
             session.setAttribute("diaryDate", diaryDate);
         }
 
+        String dateString = diaryDate.format(DateTimeFormatter.ofPattern("MMMM d, yyyy"));
+
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         Meal breakfast = meals.findMealForDayByType(user, diaryDate, MealType.BREAKFAST);
@@ -52,6 +55,7 @@ public class DiaryController {
         model.addAttribute("lunch", lunch);
         model.addAttribute("dinner", dinner);
         model.addAttribute("snacks", snacks);
+        model.addAttribute("dateString", dateString);
 
         return "users/diary";
     }
