@@ -8,210 +8,241 @@
 <div class="container">
     <div class="row">
         <div class="valign-wrapper">
-            <a th:href="@{/diary/prev}" class="col s2 left-align teal-text text-lighten-1"><i class="medium material-icons">navigate_before</i></a>
-            <h4 class="col s8 center-align"><a href="#" type="text" class="datepicker teal-text text-lighten-1">Today</a></h4>
-            <a th:href="@{/diary/next}" class="col s2 right-align teal-text text-lighten-1"><i class="medium material-icons">navigate_next</i></a>
+            <a th:href="@{/diary/prev}" class="col s2 left-align teal-text text-lighten-1"><i
+                    class="medium material-icons">navigate_before</i></a>
+            <h4 class="col s8 center-align"><a href="#" type="text"
+                                               class="datepicker teal-text text-lighten-1">Today</a></h4>
+            <a th:href="@{/diary/next}" class="col s2 right-align teal-text text-lighten-1"><i
+                    class="medium material-icons">navigate_next</i></a>
         </div>
     </div>
-    <div class="row">
-        <table class="bordered col s12">
-            <thead>
-            <tr>
-                <th th:colspan="5">
-                    <span class="first-title">Breakfast</span>
-                </th>
-                <th>
-                    <a class="btn right" th:href="@{/foods/search/{mealType}(mealType=${breakfast.mealType})}">Add</a>
-                </th>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <th>Calories</th>
-                <th>Protein</th>
-                <th>Fat</th>
-                <th>Carbohydrates</th>
-                <th>Remove</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="breakfastItem : ${breakfast.foodItems}">
-                <td th:text="${breakfastItem.description}"></td>
-                <td th:text="${breakfastItem.calories}"></td>
-                <td th:text="${breakfastItem.protein}"></td>
-                <td th:text="${breakfastItem.fat}"></td>
-                <td th:text="${breakfastItem.carbohydrates}"></td>
-                <td><a th:href="@{/foods/{foodId}/delete(foodId=${breakfastItem.id},id=${breakfast.id})}" class="btn-floating"><i class="material-icons">remove</i></a></td>
-            </tr>
-            <tr>
-                <td>Total:</td>
-                <td th:text="${breakfast.totalCalories}"></td>
-                <td th:text="${breakfast.totalProtein}"></td>
-                <td th:text="${breakfast.totalFat}"></td>
-                <td th:colspan="2" th:text="${breakfast.totalCarbohydrates}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="row">
-        <table class="bordered col s12">
-            <thead>
-                <tr>
-                    <th th:colspan="5">
-                        <span class="first-title">Lunch</span>
-                    </th>
-                    <th>
-                        <a class="btn right" th:href="@{/foods/search/{mealType}(mealType=${lunch.mealType})}">Add</a>
-                    </th>
-                </tr>
-                <tr>
-                    <th>Description</th>
-                    <th>Calories</th>
-                    <th>Protein</th>
-                    <th>Fat</th>
-                    <th>Carbohydrates</th>
-                    <th>Remove</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="lunchItem : ${lunch.foodItems}">
-                    <td th:text="${lunchItem.description}"></td>
-                    <td th:text="${lunchItem.calories}"></td>
-                    <td th:text="${lunchItem.protein}"></td>
-                    <td th:text="${lunchItem.fat}"></td>
-                    <td th:text="${lunchItem.carbohydrates}"></td>
-                    <td><a th:href="@{/foods/{foodId}/delete(foodId=${lunchItem.id},id=${lunch.id})}" class="btn-floating"><i class="material-icons">remove</i></a></td>
-                </tr>
-                <tr>
-                    <td>Total:</td>
-                    <td th:text="${lunch.totalCalories}"></td>
-                    <td th:text="${lunch.totalProtein}"></td>
-                    <td th:text="${lunch.totalFat}"></td>
-                    <td th:colspan="2" th:text="${lunch.totalCarbohydrates}"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="row">
-        <table class="bordered col s12">
-            <thead>
-            <tr>
-                <th th:colspan="5">
-                    <span class="first-title">Dinner</span>
-                </th>
-                <th>
-                    <a class="btn right" th:href="@{/foods/search/{mealType}(mealType=${dinner.mealType})}">Add</a>
-                </th>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <th>Calories</th>
-                <th>Protein</th>
-                <th>Fat</th>
-                <th>Carbohydrates</th>
-                <th>Remove</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="dinnerItem : ${dinner.foodItems}">
-                <td th:text="${dinnerItem.description}"></td>
-                <td th:text="${dinnerItem.calories}"></td>
-                <td th:text="${dinnerItem.protein}"></td>
-                <td th:text="${dinnerItem.fat}"></td>
-                <td th:text="${dinnerItem.carbohydrates}"></td>
-                <td><a th:href="@{/foods/{foodId}/delete(foodId=${dinnerItem.id},id=${dinner.id})}" class="btn-floating"><i class="material-icons">remove</i></a></td>
-            </tr>
-            <tr>
-                <td>Total:</td>
-                <td th:text="${dinner.totalCalories}"></td>
-                <td th:text="${dinner.totalProtein}"></td>
-                <td th:text="${dinner.totalFat}"></td>
-                <td th:colspan="2" th:text="${dinner.totalCarbohydrates}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="row">
-        <table class="bordered col s12">
-            <thead>
-            <tr>
-                <th th:colspan="5">
-                    <span class="first-title">Snacks</span>
-                </th>
-                <th>
-                    <a class="btn right" th:href="@{/foods/search/{mealType}(mealType=${snacks.mealType})}">Add</a>
-                </th>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <th>Calories</th>
-                <th>Protein</th>
-                <th>Fat</th>
-                <th>Carbohydrates</th>
-                <th>Remove</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="snacksItem : ${snacks.foodItems}">
-                <td th:text="${snacksItem.description}"></td>
-                <td th:text="${snacksItem.calories}"></td>
-                <td th:text="${snacksItem.protein}"></td>
-                <td th:text="${snacksItem.fat}"></td>
-                <td th:text="${snacksItem.carbohydrates}"></td>
-                <td><a th:href="@{/foods/{foodId}/delete(foodId=${snacksItem.id},id=${snacks.id})}" class="btn-floating"><i class="material-icons">remove</i></a></td>
-            </tr>
-            <tr>
-                <td>Total:</td>
-                <td th:text="${snacks.totalCalories}"></td>
-                <td th:text="${snacks.totalProtein}"></td>
-                <td th:text="${snacks.totalFat}"></td>
-                <td th:colspan="2" th:text="${snacks.totalCarbohydrates}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+    <ul class="collapsible popout" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header teal lighten-2 white-text">
+                <div class="row">
+                    <div class="col s12">
+                        <h5>Breakfast</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="collapsible-body">
+                <div class="row">
+                    <div class="col s12">
+                    <a class="btn" th:href="@{/foods/search/{mealType}(mealType=${breakfast.mealType})}">Add</a>
+                    <table class="bordered col s12">
+                        <thead>
+                        <!--<tr>-->
+                        <!--<th th:colspan="5">-->
+                        <!--<span class="first-title">Breakfast</span>-->
+                        <!--</th>-->
+                        <!--<th>-->
+                        <!--<a class="btn right" th:href="@{/foods/search/{mealType}(mealType=${breakfast.mealType})}">Add</a>-->
+                        <!--</th>-->
+                        <!--</tr>-->
+                        <tr>
+                            <th>Description</th>
+                            <th>Calories</th>
+                            <th>Protein</th>
+                            <th>Fat</th>
+                            <th>Carbohydrates</th>
+                            <th>Remove</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="breakfastItem : ${breakfast.foodItems}">
+                            <td th:text="${breakfastItem.description}"></td>
+                            <td th:text="${breakfastItem.calories}"></td>
+                            <td th:text="${breakfastItem.protein}"></td>
+                            <td th:text="${breakfastItem.fat}"></td>
+                            <td th:text="${breakfastItem.carbohydrates}"></td>
+                            <td><a th:href="@{/foods/{foodId}/delete(foodId=${breakfastItem.id},id=${breakfast.id})}"
+                                   class="btn-floating"><i class="material-icons">remove</i></a></td>
+                        </tr>
+                        <tr>
+                            <td>Total:</td>
+                            <td th:text="${breakfast.totalCalories}"></td>
+                            <td th:text="${breakfast.totalProtein}"></td>
+                            <td th:text="${breakfast.totalFat}"></td>
+                            <td th:colspan="2" th:text="${breakfast.totalCarbohydrates}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div></div>
+        </li>
+        <li>
+            <div class="row">
+                <table class="bordered col s12">
+                    <thead>
+                    <tr>
+                        <th th:colspan="5">
+                            <span class="first-title">Lunch</span>
+                        </th>
+                        <th>
+                            <a class="btn right"
+                               th:href="@{/foods/search/{mealType}(mealType=${lunch.mealType})}">Add</a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <th>Calories</th>
+                        <th>Protein</th>
+                        <th>Fat</th>
+                        <th>Carbohydrates</th>
+                        <th>Remove</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="lunchItem : ${lunch.foodItems}">
+                        <td th:text="${lunchItem.description}"></td>
+                        <td th:text="${lunchItem.calories}"></td>
+                        <td th:text="${lunchItem.protein}"></td>
+                        <td th:text="${lunchItem.fat}"></td>
+                        <td th:text="${lunchItem.carbohydrates}"></td>
+                        <td><a th:href="@{/foods/{foodId}/delete(foodId=${lunchItem.id},id=${lunch.id})}"
+                               class="btn-floating"><i class="material-icons">remove</i></a></td>
+                    </tr>
+                    <tr>
+                        <td>Total:</td>
+                        <td th:text="${lunch.totalCalories}"></td>
+                        <td th:text="${lunch.totalProtein}"></td>
+                        <td th:text="${lunch.totalFat}"></td>
+                        <td th:colspan="2" th:text="${lunch.totalCarbohydrates}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <table class="bordered col s12">
+                    <thead>
+                    <tr>
+                        <th th:colspan="5">
+                            <span class="first-title">Dinner</span>
+                        </th>
+                        <th>
+                            <a class="btn right"
+                               th:href="@{/foods/search/{mealType}(mealType=${dinner.mealType})}">Add</a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <th>Calories</th>
+                        <th>Protein</th>
+                        <th>Fat</th>
+                        <th>Carbohydrates</th>
+                        <th>Remove</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="dinnerItem : ${dinner.foodItems}">
+                        <td th:text="${dinnerItem.description}"></td>
+                        <td th:text="${dinnerItem.calories}"></td>
+                        <td th:text="${dinnerItem.protein}"></td>
+                        <td th:text="${dinnerItem.fat}"></td>
+                        <td th:text="${dinnerItem.carbohydrates}"></td>
+                        <td><a th:href="@{/foods/{foodId}/delete(foodId=${dinnerItem.id},id=${dinner.id})}"
+                               class="btn-floating"><i class="material-icons">remove</i></a></td>
+                    </tr>
+                    <tr>
+                        <td>Total:</td>
+                        <td th:text="${dinner.totalCalories}"></td>
+                        <td th:text="${dinner.totalProtein}"></td>
+                        <td th:text="${dinner.totalFat}"></td>
+                        <td th:colspan="2" th:text="${dinner.totalCarbohydrates}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <table class="bordered col s12">
+                    <thead>
+                    <tr>
+                        <th th:colspan="5">
+                            <span class="first-title">Snacks</span>
+                        </th>
+                        <th>
+                            <a class="btn right"
+                               th:href="@{/foods/search/{mealType}(mealType=${snacks.mealType})}">Add</a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <th>Calories</th>
+                        <th>Protein</th>
+                        <th>Fat</th>
+                        <th>Carbohydrates</th>
+                        <th>Remove</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="snacksItem : ${snacks.foodItems}">
+                        <td th:text="${snacksItem.description}"></td>
+                        <td th:text="${snacksItem.calories}"></td>
+                        <td th:text="${snacksItem.protein}"></td>
+                        <td th:text="${snacksItem.fat}"></td>
+                        <td th:text="${snacksItem.carbohydrates}"></td>
+                        <td><a th:href="@{/foods/{foodId}/delete(foodId=${snacksItem.id},id=${snacks.id})}"
+                               class="btn-floating"><i class="material-icons">remove</i></a></td>
+                    </tr>
+                    <tr>
+                        <td>Total:</td>
+                        <td th:text="${snacks.totalCalories}"></td>
+                        <td th:text="${snacks.totalProtein}"></td>
+                        <td th:text="${snacks.totalFat}"></td>
+                        <td th:colspan="2" th:text="${snacks.totalCarbohydrates}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </li>
+    </ul>
     <!--<table class="bordered">-->
-        <!--<tr>-->
-            <!--Total:-->
-            <!--<th th:colspan="4">-->
-                <!--<span>Lunch</span>-->
-                <!--<span class="second-button right"><input type="submit" name="submit" value="ADD"/></span>-->
-            <!--</th>-->
+    <!--<tr>-->
+    <!--Total:-->
+    <!--<th th:colspan="4">-->
+    <!--<span>Lunch</span>-->
+    <!--<span class="second-button right"><input type="submit" name="submit" value="ADD"/></span>-->
+    <!--</th>-->
 
     <!--</table>-->
 
     <!--<table class="bordered">-->
-        <!--<tr>-->
-            <!--Total:-->
-            <!--<th th:colspan="4">-->
-                <!--<span>Dinner</span>-->
-                <!--<span class="third-button right"><input type="submit" name="submit" value="ADD"/></span>-->
-            <!--</th>-->
+    <!--<tr>-->
+    <!--Total:-->
+    <!--<th th:colspan="4">-->
+    <!--<span>Dinner</span>-->
+    <!--<span class="third-button right"><input type="submit" name="submit" value="ADD"/></span>-->
+    <!--</th>-->
 
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td>Calories</td>-->
-            <!--<td>Protein</td>-->
-            <!--<td>Fat</td>-->
-            <!--<td>Carbohydrates</td>-->
-        <!--</tr>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--<td>Calories</td>-->
+    <!--<td>Protein</td>-->
+    <!--<td>Fat</td>-->
+    <!--<td>Carbohydrates</td>-->
+    <!--</tr>-->
 
     <!--</table>-->
 
     <!--<table class="bordered">-->
-        <!--<tr>-->
-            <!--Total:-->
-            <!--<th th:colspan="4">-->
-                <!--<span>Snack</span>-->
-                <!--<span class="fourth-button right"><input type="submit" name="submit" value="ADD"/></span>-->
-            <!--</th>-->
+    <!--<tr>-->
+    <!--Total:-->
+    <!--<th th:colspan="4">-->
+    <!--<span>Snack</span>-->
+    <!--<span class="fourth-button right"><input type="submit" name="submit" value="ADD"/></span>-->
+    <!--</th>-->
 
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td>Calories</td>-->
-            <!--<td>Protein</td>-->
-            <!--<td>Fat</td>-->
-            <!--<td>Carbohydrates</td>-->
-        <!--</tr>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--<td>Calories</td>-->
+    <!--<td>Protein</td>-->
+    <!--<td>Fat</td>-->
+    <!--<td>Carbohydrates</td>-->
+    <!--</tr>-->
 
     <!--</table>-->
 
