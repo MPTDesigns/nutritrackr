@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header::head('About Us')"></head>
+<body>
+<nav th:replace="partials/navbar::navbar"></nav>
+<div class="container">
+    <div class="row"><h3 class="col s12">The Nutritrackr Team</h3></div>
+    <div class="row">
+        <div class="col s12 m4">
+            <img class="responsive-img" th:src="@{/img/travis.jpeg}" alt="Travis Payne"/>
+            <ul>
+                <li><a href="mailto:travishpayne@gmail.com">Travis Payne</a></li>
+                <li><a href="https://github.com/thpAGGIE910" target="_blank">GitHub</a></li>
+                <li><a href="tel:361-728-8744">(361) 728-8744</a></li>
+            </ul>
+        </div>
+        <div class="col s12 m4">
+            <img class="responsive-img" th:src="@{/img/Paul.jpeg}" alt="Paul Valdez"/>
+            <ul>
+                <li><a href="mailto:valdezpaul00@gmail.com">Paul Valdez</a></li>
+                <li><a href="https://github.com/PaulV0001" target="_blank">GitHub</a></li>
+                <li><a href="tel:210-954-7704">(210) 954-7704</a></li>
+            </ul>
+        </div>
+        <div class="col s12 m4">
+            <img class="responsive-img" th:src="@{/img/mike.jpeg}" alt="Michael Rezene"/>
+            <ul>
+                <li><a href="mailto:michaelrezene86@gmail.com">Michael Rezene</a></li>
+                <li><a href="http://github.com/MichaelRezene" target="_blank">GitHub</a></li>
+                <li><a href="tel:832-771-4891">(832) 771-4891</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <p>If you would like to contribute, please <a href="https://github.com/MPTDesigns/nutritrackr" target="_blank">click here</a> to view the project's GitHub repository.</p>
+        </div>
+    </div>
+</div>
+<footer th:include="partials/scripts::scripts"></footer>
+</body>
+</html>

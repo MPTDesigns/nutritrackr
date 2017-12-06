@@ -1,8 +1,10 @@
-(function($) {
-    $(document).ready(function () {
+(function($, Materialize) {
+    $(function () {
         // navbar initializations
         $(".dropdown-button").dropdown();
         $(".button-collapse").sideNav();
+
+        Materialize.updateTextFields();
 
         // Listener for diary date picker
         $('.datepicker').pickadate({
@@ -20,4 +22,4 @@
             $("#logout-form").submit();
         });
     });
-})(jQuery);
+})(jQuery, Materialize);

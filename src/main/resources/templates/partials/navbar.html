@@ -18,9 +18,9 @@
             <li><a th:href="@{/progress/daily}">Daily Progress</a></li>
             <li><a th:href="@{/progress/weekly}">Weekly Progress</a></li>
         </ul>
-        <nav>
+        <nav class=" purple lighten-3">
             <div class="nav-wrapper">
-                <a href="/" class="brand-logo">Nutritrackr</a>
+                <a th:href="@{/about-us}" class="brand-logo">Nutritrackr</a>
                 <a href="#" data-activates="mobile-side-nav" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li sec:authorize="isAuthenticated()"><a th:href="@{/diary}">Diary</a></li>
