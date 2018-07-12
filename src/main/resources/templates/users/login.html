@@ -16,6 +16,9 @@
                     <i class="material-icons prefix">email</i>
                     <input id="email" name="email" type="text" />
                     <label for="email">Email</label>
+                    <div th:if="${param.error}">
+                      <span style="color: red"> Invalid Username or Password. Have you registered?</span>
+                    </div>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">https</i>

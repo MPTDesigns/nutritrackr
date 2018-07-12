@@ -1,8 +1,10 @@
 package com.codeup.nutritrackr.models;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -13,15 +15,19 @@ public class User {
     private long id;
 
     @Column(nullable = false, length = 100, unique = true)
+    @NotBlank(message="Email is required.")
     private String email;
 
     @Column(nullable = false, length = 100)
+    @NotBlank(message = "Password is required")
     private String password;
 
     @Column(nullable = false, length = 50)
+    @NotBlank(message = "First name is required")
     private String firstName;
 
     @Column(nullable = false, length = 50)
+    @NotBlank(message = "Last name is required")
     private String lastName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -42,7 +48,6 @@ public class User {
         this.goals = user.goals;
         this.meals = user.meals;
     }
-
     public long getId() {
         return id;
     }
@@ -90,4 +95,5 @@ public class User {
     public void setGoals(List<Goal> goals) {
         this.goals = goals;
     }
+
 }

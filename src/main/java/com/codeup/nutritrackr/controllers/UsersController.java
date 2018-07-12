@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 
 @Controller
@@ -31,14 +33,27 @@ public class UsersController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute User user, @RequestParam("confirmPwd") String confirmPassword) {
-        if(user.getPassword().equals(confirmPassword)) {
+    public String registerUser(@Valid User user, Errors validation, Model model, @RequestParam("confirmPwd") String confirmPassword) {
+        if (validation.hasErrors()) {
+            model.addAttribute("errors", validation);
+            model.addAttribute("user", user);
+            return "users/register";
+        }
+        if (!confirmPassword.equals(user.getPassword())) {
+            validation.rejectValue("password", "user.password", "Your password do not match!");
+
             String hash = passwordEncoder.encode(user.getPassword());
             user.setPassword(hash);
+            users.save(user);
+
+        } if (users.findByEmail(user.getEmail()) == null && user.getPassword().equals(confirmPassword)) {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
             users.save(user);
             return "redirect:/login";
         }
 
         return "users/register";
+     }
     }
-}
+
+
